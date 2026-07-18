@@ -1,7 +1,8 @@
 import { useState } from "react";
 import type { ArenaData } from "../lib/data";
-import type { FeedItem } from "../types";
+import type { FeedItem, Model } from "../types";
 import { dateLabel, fmtScore, relativeDays, statusChipClass } from "../lib/format";
+import { ModelSheet } from "../components/ModelSheet";
 
 type Filter = "fresh" | "leaderboard" | "progress";
 
@@ -13,8 +14,14 @@ const FILTERS: { key: Filter; label: string; desc: string }[] = [
 
 export function FeedView({ data }: { data: ArenaData }) {
   const [filter, setFilter] = useState<Filter>("fresh");
+  const [active, setActive] = useState<Model | null>(null);
 
   const items: FeedItem[] = data.feed;
+
+  function openModel(modelId: string) {
+    const m = data.models.find((x) => x.id === modelId);
+    if (m) setActive(m);
+  }
 
   return (
     <>
@@ -40,16 +47,33 @@ export function FeedView({ data }: { data: ArenaData }) {
         ) : filter === "progress" ? (
           <IndustryProgress data={data} />
         ) : (
-          items.slice(0, 30).map((f) => <FeedCard key={f.id} item={f} />)
+          items.slice(0, 30).map((f) => (
+            <FeedCard key={f.id} item={f} onOpen={() => openModel(f.modelId)} />
+          ))
         )}
       </div>
+
+      {active ? (
+        <ModelSheet model={active} models={data.models} onClose={() => setActive(null)} />
+      ) : null}
     </>
   );
 }
 
-function FeedCard({ item }: { item: FeedItem }) {
+function FeedCard({ item, onOpen }: { item: FeedItem; onOpen: () => void }) {
   return (
-    <article className="feed-item">
+    <article
+      className="feed-item feed-item-tap"
+      role="button"
+      tabIndex={0}
+      onClick={onOpen}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onOpen();
+        }
+      }}
+    >
       <div className="feed-head">
         <div className="row gap-6 wrap">
           <span className="feed-date">{dateLabel(item.released)}</span>
@@ -67,7 +91,13 @@ function FeedCard({ item }: { item: FeedItem }) {
         {item.sourceUrl ? (
           <>
             {" · "}
-            <a href={item.sourceUrl} target="_blank" rel="noreferrer" style={{ color: "var(--cyan)" }}>
+            <a
+              href={item.sourceUrl}
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "var(--cyan)" }}
+              onClick={(e) => e.stopPropagation()}
+            >
               source
             </a>
           </>

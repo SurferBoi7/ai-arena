@@ -2,10 +2,33 @@ import type { Model } from "../types";
 import { fmtScore, monogram, statusChipClass, tierLabel, dateLabel } from "../lib/format";
 import { colorFromString } from "../lib/format";
 
-export function ModelRow({ model, rank }: { model: Model; rank: number }) {
+export function ModelRow({
+  model,
+  rank,
+  onOpen,
+}: {
+  model: Model;
+  rank: number;
+  onOpen?: () => void;
+}) {
   const rankClass = rank === 1 ? "rank-1" : rank === 2 ? "rank-2" : rank === 3 ? "rank-3" : "";
   return (
-    <div className="model-row" role="listitem">
+    <div
+      className={`model-row ${onOpen ? "model-row-tap" : ""}`}
+      role={onOpen ? "button" : "listitem"}
+      tabIndex={onOpen ? 0 : undefined}
+      onClick={onOpen}
+      onKeyDown={
+        onOpen
+          ? (e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                onOpen();
+              }
+            }
+          : undefined
+      }
+    >
       <div className={`rank ${rankClass}`}>{rank}</div>
       <div
         className="monogram"

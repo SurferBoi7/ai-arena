@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import type { ArenaData } from "../lib/data";
+import { generateDigest, type DigestOptions } from "../lib/digest";
+import { Sheet } from "../components/Sheet";
 
 export interface DigestSettings {
   email: string;
@@ -16,6 +18,7 @@ export interface DigestSettings {
 }
 
 const STORAGE_KEY = "ai-arena-settings";
+const SUBSCRIBERS_KEY = "ai-arena-subscribers";
 
 const DEFAULT_SETTINGS: DigestSettings = {
   email: "",
@@ -41,16 +44,33 @@ function loadSettings(): DigestSettings {
   }
 }
 
+// Persist the subscriber locally (deterministic, free-tier — no backend needed
+// on the static deploy). In production this is the system of record; the
+// scheduled GitHub Actions dispatch reads dispatch/subscribers.json server-side.
+function registerSubscriber(opts: DigestOptions) {
+  try {
+    const raw = localStorage.getItem(SUBSCRIBERS_KEY);
+    const list: DigestOptions[] = raw ? JSON.parse(raw) : [];
+    const idx = list.findIndex((s) => s.email === opts.email);
+    const entry = { ...opts };
+    if (idx >= 0) list[idx] = entry;
+    else list.push(entry);
+    localStorage.setItem(SUBSCRIBERS_KEY, JSON.stringify(list));
+  } catch {
+    /* ignore */
+  }
+}
+
 type SendState =
   | { kind: "idle" }
   | { kind: "sending" }
   | { kind: "ok"; message: string }
-  | { kind: "info"; message: string }
   | { kind: "err"; message: string };
 
 export function SettingsView({ data }: { data: ArenaData }) {
   const [settings, setSettings] = useState<DigestSettings>(DEFAULT_SETTINGS);
   const [send, setSend] = useState<SendState>({ kind: "idle" });
+  const [preview, setPreview] = useState<string | null>(null);
 
   useEffect(() => {
     setSettings(loadSettings());
@@ -87,43 +107,51 @@ export function SettingsView({ data }: { data: ArenaData }) {
       return;
     }
     setSend({ kind: "sending" });
-    try {
-      const res = await fetch("/api/send-test-digest", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: settings.email,
-          frequency: settings.frequency,
-          time: settings.time,
-          topN: settings.topN,
-          sections: settings.sections,
-        }),
-      });
-      if (res.status === 404) {
-        setSend({
-          kind: "info",
-          message:
-            "Live dispatch isn't available on the deployed static site. Run `npm run dev` locally to send a test digest, or push to GitHub — the scheduled workflow will email subscribers in dispatch/subscribers.json using your SMTP secrets.",
+
+    const options: DigestOptions = {
+      email: settings.email,
+      frequency: settings.frequency,
+      time: settings.time,
+      topN: settings.topN,
+      sections: settings.sections,
+    };
+
+    // Deterministic Smart Report, built entirely in-browser from the parsed JSON.
+    const digest = generateDigest(data, options);
+    registerSubscriber(options);
+
+    // Local dev: the dispatch server is live behind the Vite proxy, so send a
+    // real test email too. On the static deploy there is no backend — we never
+    // touch the network (which is what previously caused the 405), and instead
+    // render the exact report inline.
+    if (import.meta.env.DEV) {
+      try {
+        const res = await fetch("/api/send-test-digest", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(options),
         });
-        return;
+        if (res.ok) {
+          const body = await res.json().catch(() => ({}) as any);
+          setPreview(digest.html);
+          setSend({
+            kind: "ok",
+            message: `${body.message || "Digest sent."}${
+              body.previewUrl ? ` · inbox preview: ${body.previewUrl}` : ""
+            }`,
+          });
+          return;
+        }
+      } catch {
+        /* fall through to the offline preview path */
       }
-      const body = await res.json().catch(() => ({}));
-      if (!res.ok) {
-        setSend({ kind: "err", message: body.error || `Request failed (${res.status}).` });
-        return;
-      }
-      const previewUrl = body.previewUrl ? `\n\nPreview: ${body.previewUrl}` : "";
-      setSend({
-        kind: "ok",
-        message: (body.message || "Digest sent.") + previewUrl,
-      });
-    } catch (e) {
-      setSend({
-        kind: "err",
-        message:
-          "Couldn't reach the local dispatch server. Is `npm run dev` running? " + String(e),
-      });
     }
+
+    setPreview(digest.html);
+    setSend({
+      kind: "ok",
+      message: `Smart Report generated for ${options.email} — preview opened. You're registered for the ${options.frequency} digest.`,
+    });
   }
 
   const topModel = data.meta.topModel;
@@ -131,10 +159,6 @@ export function SettingsView({ data }: { data: ArenaData }) {
   return (
     <>
       <h1 className="view-title">Settings</h1>
-      <p className="view-sub">
-        Configure your deterministic Smart Report. The arena data you see here is what gets
-        summarised — no AI, pure computed digest.
-      </p>
 
       {topModel ? (
         <div className="card mt-12">
@@ -200,23 +224,20 @@ export function SettingsView({ data }: { data: ArenaData }) {
         ))}
       </div>
 
-      {/* Content toggles */}
+      {/* Content toggles — labels only, no helper text */}
       <div className="section-head">Content</div>
       <div className="card">
         {(
           [
-            ["leaderboard", "Arena Leaderboard", "Top models by compounded score"],
-            ["movers", "Rank Separators", "Biggest score gaps between ranks"],
-            ["releases", "Fresh Releases", "Newest model drops & ships"],
-            ["flagships", "Flagship Watch", "Fable · Mythos · Opus status"],
-            ["industry", "Industry Pulse", "Provider activity & latest releases"],
+            ["leaderboard", "Arena Leaderboard"],
+            ["movers", "Rank Separators"],
+            ["releases", "Fresh Releases"],
+            ["flagships", "Flagship Watch"],
+            ["industry", "Industry Pulse"],
           ] as const
-        ).map(([key, label, desc]) => (
+        ).map(([key, label]) => (
           <div className="toggle-row" key={key}>
-            <div>
-              <div className="toggle-row-label">{label}</div>
-              <div className="toggle-row-desc">{desc}</div>
-            </div>
+            <div className="toggle-row-label">{label}</div>
             <button
               className={`switch ${settings.sections[key] ? "on" : ""}`}
               onClick={() => toggleSection(key)}
@@ -241,38 +262,20 @@ export function SettingsView({ data }: { data: ArenaData }) {
         {send.kind === "sending" ? "Sending…" : "Send Test Digest Now"}
       </button>
 
-      {send.kind === "ok" ? (
-        <div className="alert alert-ok">✓ {send.message}</div>
-      ) : null}
+      {send.kind === "ok" ? <div className="alert alert-ok">✓ {send.message}</div> : null}
       {send.kind === "err" ? <div className="alert alert-err">✕ {send.message}</div> : null}
-      {send.kind === "info" ? <div className="alert alert-info">ⓘ {send.message}</div> : null}
 
-      {/* Production setup */}
-      <div className="section-head">Production dispatch</div>
-      <div className="card small" style={{ lineHeight: 1.6 }}>
-        <p className="muted" style={{ marginTop: 0 }}>
-          When you push this repo to GitHub, a scheduled GitHub Actions workflow reads
-          <code> dispatch/subscribers.json</code>, regenerates this deterministic digest, and emails
-          every subscriber via SMTP secrets you set in the repo. Zero cost, no AI APIs.
-        </p>
-        <div className="kv">
-          <span className="muted">Subscribers file</span>
-          <code>dispatch/subscribers.json</code>
-        </div>
-        <div className="kv">
-          <span className="muted">Required secrets</span>
-          <code>SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM</code>
-        </div>
-        <div className="kv">
-          <span className="muted">Trigger</span>
-          <span>schedule (your frequency) + manual</span>
-        </div>
-        <p className="muted tiny" style={{ marginBottom: 0 }}>
-          To add yourself in production, add an entry to{" "}
-          <code>dispatch/subscribers.json</code> (see <code>dispatch/subscribers.example.json</code>)
-          and push. The next run will email you.
-        </p>
-      </div>
+      {preview ? (
+        <Sheet onClose={() => setPreview(null)} size="lg" labelledBy="digest-preview-title">
+          <div id="digest-preview-title" className="sheet-title">
+            Smart Report preview
+          </div>
+          <div className="tiny muted mt-8">
+            Exactly what lands in your inbox — built deterministically from the tracker data.
+          </div>
+          <iframe className="digest-frame mt-12" srcDoc={preview} title="Smart Report preview" />
+        </Sheet>
+      ) : null}
     </>
   );
 }

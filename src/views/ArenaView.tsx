@@ -1,12 +1,15 @@
 import { useMemo, useState } from "react";
 import type { ArenaData } from "../lib/data";
+import type { Model } from "../types";
 import { rankedModels } from "../lib/data";
 import { ModelRow } from "../components/ModelRow";
+import { ModelSheet } from "../components/ModelSheet";
 import { TimelineGraph } from "../components/TimelineGraph";
 
 export function ArenaView({ data }: { data: ArenaData }) {
   const [mode, setMode] = useState<"list" | "graph">("list");
   const [filter, setFilter] = useState<"all" | "flagship" | "measured">("all");
+  const [active, setActive] = useState<Model | null>(null);
 
   const ranked = useMemo(() => rankedModels(data.models), [data.models]);
 
@@ -58,15 +61,19 @@ export function ArenaView({ data }: { data: ArenaData }) {
 
       {mode === "graph" ? (
         <div className="mt-12">
-          <TimelineGraph models={filtered} />
+          <TimelineGraph models={filtered} onSelect={setActive} />
         </div>
       ) : (
         <div className="card mt-12" role="list" style={{ padding: "4px" }}>
           {filtered.map((m, i) => (
-            <ModelRow key={m.id} model={m} rank={i + 1} />
+            <ModelRow key={m.id} model={m} rank={i + 1} onOpen={() => setActive(m)} />
           ))}
         </div>
       )}
+
+      {active ? (
+        <ModelSheet model={active} models={data.models} onClose={() => setActive(null)} />
+      ) : null}
 
       <div className="alert alert-info mt-16">
         <strong>How scoring works.</strong> Weighted verified mean (SWE-bench Verified &amp;
