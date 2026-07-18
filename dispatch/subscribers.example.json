@@ -1,0 +1,16 @@
+[
+  {
+    "email": "you@example.com",
+    "frequency": "weekly",
+    "time": "08:00",
+    "topN": 10,
+    "sections": {
+      "leaderboard": true,
+      "movers": true,
+      "releases": true,
+      "flagships": true,
+      "industry": true
+    },
+    "addedAt": "2026-07-18T00:00:00.000Z"
+  }
+]

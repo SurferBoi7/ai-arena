@@ -1,0 +1,149 @@
+# =============================================================================
+# AI Arena — Self-updating data pipeline + GitHub Pages deploy + dispatch.
+# =============================================================================
+# Triggers the moment you push to the default branch, on a daily schedule,
+# and manually. It:
+#   1. scrapes (HuggingFace Hub, best-effort) + applies the reality-corrected
+#      scoring engine + vendor-verified flagship baselines,
+#   2. runs the Reality-Check validation (flagships on top, no missing-data
+#      reward, intelligence ceiling enforced),
+#   3. builds the Vite PWA with the correct GitHub Pages base path,
+#   4. deploys `dist/` to a `gh-pages` branch (classic, reliable),
+#   5. (separate job) sends the deterministic Smart Report to every subscriber
+#      in dispatch/subscribers.json via your SMTP secrets.
+#
+# Zero cost (GitHub Actions free tier). No AI APIs. Push to the repo root and
+# this takes over autonomously.
+# =============================================================================
+
+name: Update Data & Deploy
+
+on:
+  push:
+    branches: [main, master]
+  schedule:
+    # 08:00 UTC daily — re-scrape, re-score, redeploy.
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+    inputs:
+      send_digest:
+        description: "Also send the Smart Report digest to subscribers"
+        type: boolean
+        default: false
+
+# Let the workflow push to gh-pages and read the repo.
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ai-arena-update
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    name: Scrape · Score · Build · Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Scrape + score data
+        run: npm run update-data
+
+      - name: Reality-check validation
+        run: npm run validate
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/*.json
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "chore(data): refresh arena scores [skip ci]"
+            git push
+          fi
+
+      - name: Compute GitHub Pages base path
+        id: base
+        run: |
+          REPO="${GITHUB_REPOSITORY##*/}"
+          if [ "$REPO" = "${GITHUB_REPOSITORY%%/*}.github.io" ]; then
+            echo "base=/" >> "$GITHUB_OUTPUT"
+          else
+            echo "base=/$REPO/" >> "$GITHUB_OUTPUT"
+          fi
+          echo "Detected base path: $(cat "$GITHUB_OUTPUT")"
+
+      - name: Build PWA
+        env:
+          VITE_BASE_PATH: ${{ steps.base.outputs.base }}
+        run: npm run build
+
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          keep_files: false
+          user_name: "github-actions[bot]"
+          user_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          commit_message: "deploy: AI Arena PWA"
+
+  dispatch:
+    name: Send Smart Report digest
+    runs-on: ubuntu-latest
+    # Only dispatch on schedule or manual runs — not on every push.
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.send_digest)
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Scrape + score (ensure fresh digest source)
+        run: npm run update-data
+
+      - name: Check for subscribers
+        id: subs
+        run: |
+          if [ -f dispatch/subscribers.json ]; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "No dispatch/subscribers.json — skipping digest."
+          fi
+
+      - name: Send deterministic Smart Report
+        if: steps.subs.outputs.exists == 'true'
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_SECURE: ${{ secrets.SMTP_SECURE }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+        run: npx tsx scripts/send-digest.ts
