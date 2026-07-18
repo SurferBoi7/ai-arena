@@ -1,0 +1,192 @@
+[
+ {
+  "key": "openai",
+  "name": "OpenAI",
+  "monogram": "AI",
+  "color": "#10a37f",
+  "blurb": "Maker of the GPT and o-series frontier models.",
+  "modelCount": 14,
+  "latestRelease": "2026-07-09",
+  "latestModel": "GPT-5.6 Sol"
+ },
+ {
+  "key": "alibaba",
+  "name": "Alibaba / Qwen",
+  "monogram": "Q",
+  "color": "#ff6a00",
+  "blurb": "Alibaba's Qwen open-weight model series.",
+  "modelCount": 13,
+  "latestRelease": "2026-06-25",
+  "latestModel": "Alibaba Qwen-AgentWorld-35B-A3B"
+ },
+ {
+  "key": "mistral",
+  "name": "Mistral AI",
+  "monogram": "M",
+  "color": "#ff7000",
+  "blurb": "European lab behind the Mistral and Mixtral families.",
+  "modelCount": 12,
+  "latestRelease": "2026-07-15",
+  "latestModel": "Mistral Leanstral-1.5-119B-A6B"
+ },
+ {
+  "key": "deepseek",
+  "name": "DeepSeek",
+  "monogram": "D",
+  "color": "#4d6bfe",
+  "blurb": "Chinese lab behind DeepSeek V/R reasoning models.",
+  "modelCount": 10,
+  "latestRelease": "2026-07-04",
+  "latestModel": "DeepSeek DeepSeek-V4-Flash-DSpark"
+ },
+ {
+  "key": "anthropic",
+  "name": "Anthropic",
+  "monogram": "A",
+  "color": "#d97757",
+  "blurb": "Creator of the Claude model family and originator of Constitutional AI.",
+  "modelCount": 10,
+  "latestRelease": "2026-06-30",
+  "latestModel": "Claude Sonnet 5"
+ },
+ {
+  "key": "google",
+  "name": "Google",
+  "monogram": "G",
+  "color": "#4285f4",
+  "blurb": "Google DeepMind — the Gemini model line.",
+  "modelCount": 10,
+  "latestRelease": "2026-05-19",
+  "latestModel": "Gemini 3.5 Flash"
+ },
+ {
+  "key": "meta",
+  "name": "Meta",
+  "monogram": "M",
+  "color": "#0668e1",
+  "blurb": "Meta AI — open-weight Llama foundation models.",
+  "modelCount": 10,
+  "latestRelease": "2026-04-08",
+  "latestModel": "Muse Spark"
+ },
+ {
+  "key": "zhipu",
+  "name": "Zhipu AI",
+  "monogram": "Z",
+  "color": "#3b5bdb",
+  "blurb": "Chinese lab behind the GLM model family.",
+  "modelCount": 9,
+  "latestRelease": "2026-07-15",
+  "latestModel": "Zhipu SCAIL-2"
+ },
+ {
+  "key": "xai",
+  "name": "xAI",
+  "monogram": "X",
+  "color": "#e5e7eb",
+  "blurb": "Elon Musk's lab, builder of the Grok models.",
+  "modelCount": 6,
+  "latestRelease": "2026-07-08",
+  "latestModel": "Grok 4.5"
+ },
+ {
+  "key": "moonshot",
+  "name": "Moonshot AI",
+  "monogram": "K",
+  "color": "#16181d",
+  "blurb": "Builder of the Kimi long-context models.",
+  "modelCount": 5,
+  "latestRelease": "2026-07-16",
+  "latestModel": "Kimi K3"
+ },
+ {
+  "key": "microsoft",
+  "name": "Microsoft",
+  "monogram": "MS",
+  "color": "#00a4ef",
+  "blurb": "Microsoft — Phi small language models and MAI-1.",
+  "modelCount": 4,
+  "latestRelease": "2026-06-02",
+  "latestModel": "MAI-Code-1-Flash"
+ },
+ {
+  "key": "minimax",
+  "name": "MiniMax",
+  "monogram": "X",
+  "color": "#e64980",
+  "blurb": "Chinese lab behind the MiniMax-01 and M-series models.",
+  "modelCount": 4,
+  "latestRelease": "2026-06-01",
+  "latestModel": "MiniMax M3"
+ },
+ {
+  "key": "bytedance",
+  "name": "ByteDance",
+  "monogram": "B",
+  "color": "#ff2d55",
+  "blurb": "ByteDance — Doubao and Seed models.",
+  "modelCount": 2,
+  "latestRelease": "2026-06-24",
+  "latestModel": "Doubao Seed 2.1 Pro"
+ },
+ {
+  "key": "cohere",
+  "name": "Cohere",
+  "monogram": "C",
+  "color": "#39594d",
+  "blurb": "Enterprise-focused lab behind the Command models.",
+  "modelCount": 2,
+  "latestRelease": "2026-05-20",
+  "latestModel": "Command A+"
+ },
+ {
+  "key": "amazon",
+  "name": "Amazon",
+  "monogram": "AZ",
+  "color": "#ff9900",
+  "blurb": "Amazon — Nova foundation models.",
+  "modelCount": 2,
+  "latestRelease": "2025-12-02",
+  "latestModel": "Nova 2 Pro Preview"
+ },
+ {
+  "key": "nous",
+  "name": "Nous Research",
+  "monogram": "N",
+  "color": "#a855f7",
+  "blurb": "Independent open-weights research lab.",
+  "modelCount": 2,
+  "latestRelease": "2025-08-26",
+  "latestModel": "Hermes 4 70B"
+ },
+ {
+  "key": "thinkingmachines",
+  "name": "Thinking Machines Lab",
+  "monogram": "TM",
+  "color": "#8b5cf6",
+  "blurb": "Mira Murati's lab building open multimodal models.",
+  "modelCount": 1,
+  "latestRelease": "2026-07-15",
+  "latestModel": "Inkling"
+ },
+ {
+  "key": "meituan",
+  "name": "Meituan",
+  "monogram": "Me",
+  "color": "#ffc300",
+  "blurb": "Meituan LongCat model line.",
+  "modelCount": 1,
+  "latestRelease": "2026-06-29",
+  "latestModel": "LongCat-2.0"
+ },
+ {
+  "key": "tencent",
+  "name": "Tencent",
+  "monogram": "T",
+  "color": "#00a4f7",
+  "blurb": "Tencent Hunyuan model family.",
+  "modelCount": 1,
+  "latestRelease": "2026-04-23",
+  "latestModel": "Hy3 Preview"
+ }
+]

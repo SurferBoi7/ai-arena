@@ -1,0 +1,30 @@
+{
+ "generatedAt": "2026-07-18T13:54:19.547Z",
+ "source": "demandsphere-mcp+huggingface+vendor-notes",
+ "modelCount": 128,
+ "measuredCount": 59,
+ "imputedCount": 69,
+ "sourceStatuses": [
+  {
+   "source": "demandsphere-mcp",
+   "status": "ok",
+   "models": 128
+  },
+  {
+   "source": "huggingface-hub",
+   "status": "ok",
+   "note": "open-model discovery"
+  },
+  {
+   "source": "vendor-notes",
+   "status": "ok",
+   "note": "flagship system-card baselines"
+  }
+ ],
+ "topModel": {
+  "id": "cm5",
+  "name": "Claude Mythos 5",
+  "score": 90.9
+ },
+ "scoring": "Reality-corrected: weighted verified mean (SWE-bench & HLE weighted highest) + hyper-dominant omission penalty + vendor-verified flagship baselines + intelligence ceiling on lightweight models. No grace-period imputation."
+}
