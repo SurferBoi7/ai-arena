@@ -57,7 +57,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "cf5",
@@ -181,7 +182,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "co46",
@@ -242,7 +244,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "co45",
@@ -302,7 +305,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "g3f",
@@ -362,7 +366,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "frontier"
+  "tier": "frontier",
+  "benchmarkSources": {}
  },
  {
   "id": "gpt-5",
@@ -421,7 +426,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "gpt-55",
@@ -481,7 +487,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "gpt-55p",
@@ -541,7 +548,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "o3",
@@ -600,7 +608,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "gpt-54",
@@ -659,7 +668,68 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
+ },
+ {
+  "id": "glm52",
+  "name": "GLM-5.2",
+  "provider": "Zhipu AI",
+  "providerKey": "zhipu",
+  "family": "glm",
+  "generation": 5.2,
+  "country": "China",
+  "type": "Reasoning",
+  "access": "Open",
+  "released": "2026-06-13",
+  "cutoff": null,
+  "parameters": "753B (40B active)",
+  "contextWindow": "1000K tokens",
+  "contextTokens": 1000000,
+  "pricing": null,
+  "multimodal": false,
+  "reasoning": true,
+  "description": "753B MoE / 40B active. SWE-Bench Pro 62.1% (up from GLM-5.1's 58.4%), beating GPT-5.5 (58.6%). Terminal-Bench 2.1 81.0% (82.7% best harness), AIME 2026 99.2%, GPQA Diamond 91.2%, HLE 54.7% with tools, MCP-Atlas 76.8%. Selectable reasoning effort (High/Max). 1M context, up to 131K output. Open-weight, MIT license. API $1.40/$4.40 per 1M tokens (cached input $0.26); GLM Coding Plan from ~$10/mo.",
+  "sourceUrl": "https://docs.z.ai/release-notes/new-released",
+  "benchmarks": {
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null,
+   "gpqa_diamond": 91.2,
+   "swe_bench": null,
+   "livecode_bench": null,
+   "aime": 99.2,
+   "hle": 54.7
+  },
+  "normalized": {
+   "swe_bench": null,
+   "hle": 91.16666666666667,
+   "gpqa_diamond": 96.00000000000001,
+   "livecode_bench": null,
+   "aime": 99.2,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 3,
+  "measuredScore": 94.8,
+  "ultimateScore": 82.7,
+  "scoreStatus": "partial",
+  "imputationReason": "Partial (3 verified benchmarks). Omission penalty applied for missing benchmarks.",
+  "ceilingReason": null,
+  "tags": [
+   "Math",
+   "Reasoning",
+   "Open Weights",
+   "Reasoning Model",
+   "Long Context"
+  ],
+  "source": "demandsphere-mcp+huggingface",
+  "fetchedAt": "2026-07-18T11:57:21.774Z",
+  "tier": "general",
+  "benchmarkSources": {
+   "hle": "vendor"
+  }
  },
  {
   "id": "co48",
@@ -719,7 +789,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "grok4",
@@ -779,7 +850,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "cs46",
@@ -836,7 +908,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "co47",
@@ -895,7 +968,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "grok420",
@@ -955,7 +1029,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "dsv4p",
@@ -1015,7 +1090,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "cs45",
@@ -1073,64 +1149,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
- },
- {
-  "id": "glm52",
-  "name": "GLM-5.2",
-  "provider": "Zhipu AI",
-  "providerKey": "zhipu",
-  "family": "glm",
-  "generation": 5.2,
-  "country": "China",
-  "type": "Reasoning",
-  "access": "Open",
-  "released": "2026-06-13",
-  "cutoff": null,
-  "parameters": "753B (40B active)",
-  "contextWindow": "1000K tokens",
-  "contextTokens": 1000000,
-  "pricing": null,
-  "multimodal": false,
-  "reasoning": true,
-  "description": "753B MoE / 40B active. SWE-Bench Pro 62.1% (up from GLM-5.1's 58.4%), beating GPT-5.5 (58.6%). Terminal-Bench 2.1 81.0% (82.7% best harness), AIME 2026 99.2%, GPQA Diamond 91.2%, HLE 54.7% with tools, MCP-Atlas 76.8%. Selectable reasoning effort (High/Max). 1M context, up to 131K output. Open-weight, MIT license. API $1.40/$4.40 per 1M tokens (cached input $0.26); GLM Coding Plan from ~$10/mo.",
-  "sourceUrl": "https://docs.z.ai/release-notes/new-released",
-  "benchmarks": {
-   "mmlu_pro": null,
-   "humaneval": null,
-   "math500": null,
-   "gpqa_diamond": 91.2,
-   "swe_bench": null,
-   "livecode_bench": null,
-   "aime": 99.2,
-   "hle": null
-  },
-  "normalized": {
-   "swe_bench": null,
-   "hle": null,
-   "gpqa_diamond": 96.00000000000001,
-   "livecode_bench": null,
-   "aime": 99.2,
-   "mmlu_pro": null,
-   "humaneval": null,
-   "math500": null
-  },
-  "benchmarkCount": 2,
-  "measuredScore": 97.5,
-  "ultimateScore": 79.4,
-  "scoreStatus": "partial",
-  "imputationReason": "Partial (2 verified benchmarks). Omission penalty applied for missing benchmarks.",
-  "ceilingReason": null,
-  "tags": [
-   "Math",
-   "Reasoning",
-   "Open Weights",
-   "Reasoning Model",
-   "Long Context"
-  ],
-  "source": "demandsphere-mcp+huggingface",
-  "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "g25p",
@@ -1189,7 +1209,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "grok41",
@@ -1248,7 +1269,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "o4-mini",
@@ -1307,7 +1329,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "mm25",
@@ -1365,7 +1388,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "kk25",
@@ -1424,7 +1448,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "qw36-27b",
@@ -1483,7 +1508,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "q37m",
@@ -1539,7 +1565,69 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
+ },
+ {
+  "id": "inkling",
+  "name": "Inkling",
+  "provider": "Thinking Machines Lab",
+  "providerKey": "thinkingmachines",
+  "family": "thinkingmachines",
+  "generation": null,
+  "country": "United States",
+  "type": "Reasoning",
+  "access": "Open",
+  "released": "2026-07-15",
+  "cutoff": null,
+  "parameters": "975B (41B active)",
+  "contextWindow": "1000K tokens",
+  "contextTokens": 1000000,
+  "pricing": null,
+  "multimodal": true,
+  "reasoning": true,
+  "description": "Thinking Machines Lab's debut model and first public release (Mira Murati's team). Sparse Mixture-of-Experts with 975B total / 41B active parameters (256 routed plus 2 shared experts, 6 routed active per token), pretrained on 45T tokens of text, image, audio, and video. 1M context with efficient thinking-mode reasoning. Open weights on Hugging Face, fine-tunable via the lab's Tinker platform. The lab is candid that it is 'not the strongest overall model available today, open or closed,' emphasizing multimodal breadth and efficient reasoning instead. Self-reported benchmarks at effort=0.99 (not independently verified): GPQA Diamond 87.2, AIME 2026 97.1, SWE-bench Verified 77.6, Global-MMLU-Lite 88.7, and HLE with tools 46.0. Served on Tinker (limited-time 50% off, with 64K and 256K context tiers) and via TogetherAI, Fireworks, Modal, Databricks, and Baseten; no first-party per-token pricing disclosed yet. A companion Inkling-Small preview (276B total / 12B active) was announced alongside it.",
+  "sourceUrl": "https://thinkingmachines.ai/news/introducing-inkling/",
+  "benchmarks": {
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null,
+   "gpqa_diamond": 87.2,
+   "swe_bench": 77.6,
+   "livecode_bench": null,
+   "aime": 97.1,
+   "hle": null
+  },
+  "normalized": {
+   "swe_bench": 81.68421052631578,
+   "hle": null,
+   "gpqa_diamond": 91.78947368421053,
+   "livecode_bench": null,
+   "aime": 97.1,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 3,
+  "measuredScore": 88.8,
+  "ultimateScore": 76.7,
+  "scoreStatus": "partial",
+  "imputationReason": "Partial (3 verified benchmarks). Omission penalty applied for missing benchmarks.",
+  "ceilingReason": null,
+  "tags": [
+   "Open Weights",
+   "Multimodal",
+   "Reasoning Model",
+   "Long Context"
+  ],
+  "source": "demandsphere-mcp+huggingface",
+  "fetchedAt": "2026-07-18T11:57:21.774Z",
+  "tier": "general",
+  "benchmarkSources": {
+   "swe_bench": "vendor",
+   "gpqa_diamond": "vendor",
+   "aime": "vendor"
+  }
  },
  {
   "id": "qw35",
@@ -1598,7 +1686,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "maith",
@@ -1654,7 +1743,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "ge4-31",
@@ -1713,7 +1803,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "dsv4f",
@@ -1771,7 +1862,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "muse-spark",
@@ -1829,7 +1921,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "frontier"
+  "tier": "frontier",
+  "benchmarkSources": {}
  },
  {
   "id": "qw36-35b",
@@ -1888,7 +1981,68 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
+ },
+ {
+  "id": "cs5",
+  "name": "Claude Sonnet 5",
+  "provider": "Anthropic",
+  "providerKey": "anthropic",
+  "family": "sonnet",
+  "generation": 5,
+  "country": "United States",
+  "type": "General",
+  "access": "Closed",
+  "released": "2026-06-30",
+  "cutoff": null,
+  "parameters": "undisclosed",
+  "contextWindow": "1000K tokens",
+  "contextTokens": 1000000,
+  "pricing": null,
+  "multimodal": true,
+  "reasoning": false,
+  "description": "Anthropic's most agentic Sonnet, positioned close to Opus 4.8 at a lower price. Replaced Sonnet 4.6 as the default model on Claude.ai for Free and Pro plans. Per Anthropic: Humanity's Last Exam 34.6% (46.8% with tools), OSWorld-Verified 78.5%. Reported SWE-bench Verified ~85% and GPQA Diamond ~96% (third-party numbers vary; pending system-card confirmation). 1M context. Uses the newer tokenizer (~30% more tokens for the same text). Introductory pricing $2/$10 per 1M tokens through 2026-08-31, then $3/$15 (batch 50% off).",
+  "sourceUrl": "https://www.anthropic.com/news/claude-sonnet-5",
+  "benchmarks": {
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null,
+   "gpqa_diamond": 96,
+   "swe_bench": 85,
+   "livecode_bench": null,
+   "aime": null,
+   "hle": 34.6
+  },
+  "normalized": {
+   "swe_bench": 89.47368421052632,
+   "hle": 57.666666666666664,
+   "gpqa_diamond": 100,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 3,
+  "measuredScore": 80.7,
+  "ultimateScore": 72.4,
+  "scoreStatus": "partial",
+  "imputationReason": "Partial (3 verified benchmarks). Omission penalty applied for missing benchmarks.",
+  "ceilingReason": null,
+  "tags": [
+   "Frontier",
+   "Proprietary",
+   "Multimodal",
+   "Long Context"
+  ],
+  "source": "demandsphere-mcp+huggingface",
+  "fetchedAt": "2026-07-18T11:57:21.774Z",
+  "tier": "frontier",
+  "benchmarkSources": {
+   "swe_bench": "vendor",
+   "gpqa_diamond": "vendor"
+  }
  },
  {
   "id": "ge4-26",
@@ -1946,7 +2100,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "mm27",
@@ -2002,7 +2157,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "ch45",
@@ -2058,7 +2214,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "h4-405",
@@ -2114,7 +2271,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "mm1",
@@ -2170,7 +2328,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "dsr1",
@@ -2226,7 +2385,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "dsv32",
@@ -2281,7 +2441,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hy3",
@@ -2337,7 +2498,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "qw36",
@@ -2395,7 +2557,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "gpt-54m",
@@ -2451,7 +2614,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "mis-med35",
@@ -2509,7 +2673,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "qw3",
@@ -2564,7 +2729,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "kk2",
@@ -2619,7 +2785,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "gpt-41",
@@ -2676,7 +2843,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "gpt-55i",
@@ -2731,7 +2899,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "ll4m",
@@ -2787,7 +2956,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "h4-70",
@@ -2842,7 +3012,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "ge3-12b",
@@ -2896,7 +3067,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "ll33-70",
@@ -2949,7 +3121,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "ge3-27b",
@@ -3003,7 +3176,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "ll4s",
@@ -3058,7 +3232,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "mlg2",
@@ -3112,7 +3287,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "crp",
@@ -3165,63 +3341,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
- },
- {
-  "id": "cs5",
-  "name": "Claude Sonnet 5",
-  "provider": "Anthropic",
-  "providerKey": "anthropic",
-  "family": "sonnet",
-  "generation": 5,
-  "country": "United States",
-  "type": "General",
-  "access": "Closed",
-  "released": "2026-06-30",
-  "cutoff": null,
-  "parameters": "undisclosed",
-  "contextWindow": "1000K tokens",
-  "contextTokens": 1000000,
-  "pricing": null,
-  "multimodal": true,
-  "reasoning": false,
-  "description": "Anthropic's most agentic Sonnet, positioned close to Opus 4.8 at a lower price. Replaced Sonnet 4.6 as the default model on Claude.ai for Free and Pro plans. Per Anthropic: Humanity's Last Exam 34.6% (46.8% with tools), OSWorld-Verified 78.5%. Reported SWE-bench Verified ~85% and GPQA Diamond ~96% (third-party numbers vary; pending system-card confirmation). 1M context. Uses the newer tokenizer (~30% more tokens for the same text). Introductory pricing $2/$10 per 1M tokens through 2026-08-31, then $3/$15 (batch 50% off).",
-  "sourceUrl": "https://www.anthropic.com/news/claude-sonnet-5",
-  "benchmarks": {
-   "mmlu_pro": null,
-   "humaneval": null,
-   "math500": null,
-   "gpqa_diamond": null,
-   "swe_bench": null,
-   "livecode_bench": null,
-   "aime": null,
-   "hle": 34.6
-  },
-  "normalized": {
-   "swe_bench": null,
-   "hle": 57.666666666666664,
-   "gpqa_diamond": null,
-   "livecode_bench": null,
-   "aime": null,
-   "mmlu_pro": null,
-   "humaneval": null,
-   "math500": null
-  },
-  "benchmarkCount": 1,
-  "measuredScore": 57.7,
-  "ultimateScore": 41.2,
-  "scoreStatus": "partial",
-  "imputationReason": "Partial (1 verified benchmark). Omission penalty applied for missing benchmarks.",
-  "ceilingReason": null,
-  "tags": [
-   "Frontier",
-   "Proprietary",
-   "Multimodal",
-   "Long Context"
-  ],
-  "source": "demandsphere-mcp+huggingface",
-  "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "frontier"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "phi4",
@@ -3274,7 +3395,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "ge3-4b",
@@ -3328,7 +3450,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "nvp",
@@ -3383,7 +3506,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "gpt-53c",
@@ -3437,7 +3561,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "gpt-56luna",
@@ -3493,7 +3618,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "gpt-56sol",
@@ -3549,7 +3675,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "gpt-56terra",
@@ -3605,7 +3732,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "grok43",
@@ -3661,7 +3789,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "grok45",
@@ -3717,7 +3846,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "qw36-max",
@@ -3772,7 +3902,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "flagship"
+  "tier": "flagship",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:Qwen/Qwen-AgentWorld-35B-A3B",
@@ -3825,7 +3956,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:Qwen/Qwen-Image-Edit-2511",
@@ -3878,7 +4010,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
@@ -3931,7 +4064,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:Qwen/Qwen3.5-9B",
@@ -3984,7 +4118,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:Qwen/Qwen3.6-27B",
@@ -4037,7 +4172,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:Qwen/Qwen3.6-35B-A3B",
@@ -4090,7 +4226,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:deepseek-ai/DeepSeek-OCR-2",
@@ -4143,7 +4280,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:deepseek-ai/DeepSeek-R1",
@@ -4196,7 +4334,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:deepseek-ai/DeepSeek-V4-Flash",
@@ -4249,7 +4388,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:deepseek-ai/DeepSeek-V4-Flash-DSpark",
@@ -4302,7 +4442,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:deepseek-ai/DeepSeek-V4-Pro",
@@ -4355,7 +4496,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:deepseek-ai/DeepSeek-V4-Pro-DSpark",
@@ -4408,7 +4550,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "ds21pro",
@@ -4463,7 +4606,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "ds21turbo",
@@ -4518,7 +4662,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "g35f",
@@ -4574,7 +4719,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "glm5",
@@ -4628,7 +4774,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "glm51",
@@ -4683,7 +4830,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "gpt-ros",
@@ -4737,7 +4885,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:openai-community/gpt2",
@@ -4837,63 +4986,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
- },
- {
-  "id": "inkling",
-  "name": "Inkling",
-  "provider": "Thinking Machines Lab",
-  "providerKey": "thinkingmachines",
-  "family": "thinkingmachines",
-  "generation": null,
-  "country": "United States",
-  "type": "Reasoning",
-  "access": "Open",
-  "released": "2026-07-15",
-  "cutoff": null,
-  "parameters": "975B (41B active)",
-  "contextWindow": "1000K tokens",
-  "contextTokens": 1000000,
-  "pricing": null,
-  "multimodal": true,
-  "reasoning": true,
-  "description": "Thinking Machines Lab's debut model and first public release (Mira Murati's team). Sparse Mixture-of-Experts with 975B total / 41B active parameters (256 routed plus 2 shared experts, 6 routed active per token), pretrained on 45T tokens of text, image, audio, and video. 1M context with efficient thinking-mode reasoning. Open weights on Hugging Face, fine-tunable via the lab's Tinker platform. The lab is candid that it is 'not the strongest overall model available today, open or closed,' emphasizing multimodal breadth and efficient reasoning instead. Self-reported benchmarks at effort=0.99 (not independently verified): GPQA Diamond 87.2, AIME 2026 97.1, SWE-bench Verified 77.6, Global-MMLU-Lite 88.7, and HLE with tools 46.0. Served on Tinker (limited-time 50% off, with 64K and 256K context tiers) and via TogetherAI, Fireworks, Modal, Databricks, and Baseten; no first-party per-token pricing disclosed yet. A companion Inkling-Small preview (276B total / 12B active) was announced alongside it.",
-  "sourceUrl": "https://thinkingmachines.ai/news/introducing-inkling/",
-  "benchmarks": {
-   "mmlu_pro": null,
-   "humaneval": null,
-   "math500": null,
-   "gpqa_diamond": null,
-   "swe_bench": null,
-   "livecode_bench": null,
-   "aime": null,
-   "hle": null
-  },
-  "normalized": {
-   "swe_bench": null,
-   "hle": null,
-   "gpqa_diamond": null,
-   "livecode_bench": null,
-   "aime": null,
-   "mmlu_pro": null,
-   "humaneval": null,
-   "math500": null
-  },
-  "benchmarkCount": 0,
-  "measuredScore": null,
-  "ultimateScore": 0,
-  "scoreStatus": "imputed",
-  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
-  "ceilingReason": null,
-  "tags": [
-   "Open Weights",
-   "Multimodal",
-   "Reasoning Model",
-   "Long Context"
-  ],
-  "source": "demandsphere-mcp+huggingface",
-  "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "kk3",
@@ -4949,7 +5043,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:meta-llama/Llama-3.2-1B-Instruct",
@@ -5049,7 +5144,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "maicf",
@@ -5102,7 +5198,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:meta-llama/Llama-3.1-8B",
@@ -5155,7 +5252,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:meta-llama/Llama-3.1-8B-Instruct",
@@ -5208,7 +5306,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:meta-llama/Llama-3.2-1B",
@@ -5261,7 +5360,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:meta-llama/Llama-3.2-3B-Instruct",
@@ -5314,7 +5414,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:meta-llama/Llama-3.3-70B-Instruct",
@@ -5367,7 +5468,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:meta-llama/Meta-Llama-3-8B-Instruct",
@@ -5420,7 +5522,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "mxm3",
@@ -5476,7 +5579,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "mlg3",
@@ -5531,7 +5635,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:mistralai/Leanstral-1.5-119B-A6B",
@@ -5584,7 +5689,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "mm3",
@@ -5638,7 +5744,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:mistralai/Ministral-3-14B-Instruct-2512",
@@ -5691,7 +5798,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:mistralai/Mistral-7B-Instruct-v0.3",
@@ -5744,7 +5852,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:mistralai/Mistral-Medium-3.5-128B",
@@ -5797,7 +5906,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:mistralai/Voxtral-4B-TTS-2603",
@@ -5850,7 +5960,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "nv2p",
@@ -5906,7 +6017,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:facebook/opt-125m",
@@ -6229,7 +6341,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:zai-org/GLM-4.7-Flash",
@@ -6282,7 +6395,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:zai-org/GLM-5.2",
@@ -6335,7 +6449,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:zai-org/GLM-5.2-FP8",
@@ -6388,7 +6503,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:zai-org/GLM-OCR",
@@ -6441,7 +6557,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:zai-org/SCAIL-2",
@@ -6494,7 +6611,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "general"
+  "tier": "general",
+  "benchmarkSources": {}
  },
  {
   "id": "cma-plus",
@@ -6548,7 +6666,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "g31fl",
@@ -6604,7 +6723,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "kk26",
@@ -6659,7 +6779,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "kk27",
@@ -6715,7 +6836,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:mistralai/Devstral-Small-2-24B-Instruct-2512",
@@ -6768,7 +6890,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "ms31",
@@ -6822,7 +6945,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "ms4",
@@ -6878,7 +7002,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "phi4rv",
@@ -6933,7 +7058,8 @@
   ],
   "source": "demandsphere-mcp+huggingface",
   "fetchedAt": "2026-07-18T11:57:21.774Z",
-  "tier": "lightweight"
+  "tier": "lightweight",
+  "benchmarkSources": {}
  },
  {
   "id": "hf:google-t5/t5-small",
