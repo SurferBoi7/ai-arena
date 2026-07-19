@@ -982,6 +982,64 @@ textarea {
   margin-top: 6px;
 }
 
+/* ---------- email manager ---------- */
+
+.icon-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), #5b3df0);
+  box-shadow: 0 6px 20px rgba(124, 92, 255, 0.35);
+  transition: transform 0.1s, box-shadow 0.16s, opacity 0.16s;
+}
+
+.icon-btn:active {
+  transform: scale(0.94);
+}
+
+.icon-btn-ghost {
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  color: var(--muted);
+  background: var(--surface-2);
+  border: 1px solid var(--hairline-2);
+  box-shadow: none;
+}
+
+.icon-btn-ghost:hover {
+  color: var(--red);
+  border-color: rgba(251, 113, 133, 0.4);
+}
+
+.email-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 9px 8px 9px 12px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.email-row:last-child {
+  border-bottom: none;
+}
+
+.email-addr {
+  font-size: 13.5px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* ---------- digest preview ---------- */
 
 .digest-frame {
@@ -990,4 +1048,22 @@ textarea {
   border: 1px solid var(--hairline);
   border-radius: var(--radius-sm);
   background: #eef0f4;
+}
+
+.export-json {
+  width: 100%;
+  background: var(--bg-2);
+  border: 1px solid var(--hairline-2);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 12px;
+  resize: vertical;
+  outline: none;
+}
+
+.export-json:focus {
+  border-color: var(--accent);
 }

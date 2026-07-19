@@ -1,27 +1,20 @@
 import { useEffect, useState } from "react";
 import type { ArenaData } from "../lib/data";
-import { generateDigest, type DigestOptions } from "../lib/digest";
+import { generateDigest, type DigestOptions, type DigestSections } from "../lib/digest";
 import { Sheet } from "../components/Sheet";
 
 export interface DigestSettings {
-  email: string;
+  emails: string[];
   frequency: "daily" | "weekly";
   time: string;
   topN: number;
-  sections: {
-    leaderboard: boolean;
-    movers: boolean;
-    releases: boolean;
-    flagships: boolean;
-    industry: boolean;
-  };
+  sections: DigestSections;
 }
 
 const STORAGE_KEY = "ai-arena-settings";
-const SUBSCRIBERS_KEY = "ai-arena-subscribers";
 
 const DEFAULT_SETTINGS: DigestSettings = {
-  email: "",
+  emails: [],
   frequency: "weekly",
   time: "08:00",
   topN: 10,
@@ -34,124 +27,128 @@ const DEFAULT_SETTINGS: DigestSettings = {
   },
 };
 
+const isValidEmail = (e: string) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e.trim());
+
 function loadSettings(): DigestSettings {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return DEFAULT_SETTINGS;
-    return { ...DEFAULT_SETTINGS, ...JSON.parse(raw) };
+    const parsed = JSON.parse(raw);
+    // Migrate the old single-email shape → emails[].
+    const emails: string[] = Array.isArray(parsed.emails)
+      ? parsed.emails
+      : parsed.email
+        ? [parsed.email]
+        : [];
+    return { ...DEFAULT_SETTINGS, ...parsed, emails };
   } catch {
     return DEFAULT_SETTINGS;
   }
 }
 
-// Persist the subscriber locally (deterministic, free-tier — no backend needed
-// on the static deploy). In production this is the system of record; the
-// scheduled GitHub Actions dispatch reads dispatch/subscribers.json server-side.
-function registerSubscriber(opts: DigestOptions) {
-  try {
-    const raw = localStorage.getItem(SUBSCRIBERS_KEY);
-    const list: DigestOptions[] = raw ? JSON.parse(raw) : [];
-    const idx = list.findIndex((s) => s.email === opts.email);
-    const entry = { ...opts };
-    if (idx >= 0) list[idx] = entry;
-    else list.push(entry);
-    localStorage.setItem(SUBSCRIBERS_KEY, JSON.stringify(list));
-  } catch {
-    /* ignore */
-  }
+// Build the production subscribers.json payload from the current settings —
+// this is exactly what the scheduled GitHub Actions dispatch consumes.
+function subscribersPayload(s: DigestSettings) {
+  const now = new Date().toISOString();
+  return s.emails.map((email) => ({
+    email,
+    frequency: s.frequency,
+    time: s.time,
+    topN: s.topN,
+    sections: s.sections,
+    addedAt: now,
+  }));
 }
 
 type SendState =
   | { kind: "idle" }
-  | { kind: "sending" }
   | { kind: "ok"; message: string }
   | { kind: "err"; message: string };
 
 export function SettingsView({ data }: { data: ArenaData }) {
   const [settings, setSettings] = useState<DigestSettings>(DEFAULT_SETTINGS);
+  const [draft, setDraft] = useState("");
   const [send, setSend] = useState<SendState>({ kind: "idle" });
   const [preview, setPreview] = useState<string | null>(null);
+  const [exportJson, setExportJson] = useState<string | null>(null);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     setSettings(loadSettings());
   }, []);
 
+  function persist(next: DigestSettings) {
+    setSettings(next);
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    } catch {
+      /* ignore */
+    }
+  }
+
   function update<K extends keyof DigestSettings>(key: K, value: DigestSettings[K]) {
-    setSettings((s) => {
-      const next = { ...s, [key]: value };
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-      } catch {
-        /* ignore */
-      }
-      return next;
-    });
+    persist({ ...settings, [key]: value });
   }
 
-  function toggleSection(key: keyof DigestSettings["sections"]) {
-    setSettings((s) => {
-      const sections = { ...s.sections, [key]: !s.sections[key] };
-      const next = { ...s, sections };
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-      } catch {
-        /* ignore */
-      }
-      return next;
-    });
+  function toggleSection(key: keyof DigestSections) {
+    persist({ ...settings, sections: { ...settings.sections, [key]: !settings.sections[key] } });
   }
 
-  async function sendTest() {
-    if (!settings.email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(settings.email)) {
-      setSend({ kind: "err", message: "Enter a valid email address first." });
+  // Lock an email into the list (via the + button or Enter).
+  function addEmail() {
+    const email = draft.trim().toLowerCase();
+    if (!isValidEmail(email)) {
+      setSend({ kind: "err", message: "Enter a valid email address." });
       return;
     }
-    setSend({ kind: "sending" });
+    if (settings.emails.includes(email)) {
+      setDraft("");
+      return;
+    }
+    persist({ ...settings, emails: [...settings.emails, email] });
+    setDraft("");
+    setSend({ kind: "idle" });
+  }
 
+  function removeEmail(email: string) {
+    persist({ ...settings, emails: settings.emails.filter((e) => e !== email) });
+  }
+
+  function previewDigest() {
+    if (settings.emails.length === 0) {
+      setSend({ kind: "err", message: "Add at least one email first." });
+      return;
+    }
     const options: DigestOptions = {
-      email: settings.email,
+      email: settings.emails[0],
       frequency: settings.frequency,
       time: settings.time,
       topN: settings.topN,
       sections: settings.sections,
     };
-
-    // Deterministic Smart Report, built entirely in-browser from the parsed JSON.
-    const digest = generateDigest(data, options);
-    registerSubscriber(options);
-
-    // Local dev: the dispatch server is live behind the Vite proxy, so send a
-    // real test email too. On the static deploy there is no backend — we never
-    // touch the network (which is what previously caused the 405), and instead
-    // render the exact report inline.
-    if (import.meta.env.DEV) {
-      try {
-        const res = await fetch("/api/send-test-digest", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(options),
-        });
-        if (res.ok) {
-          const body = await res.json().catch(() => ({}) as any);
-          setPreview(digest.html);
-          setSend({
-            kind: "ok",
-            message: `${body.message || "Digest sent."}${
-              body.previewUrl ? ` · inbox preview: ${body.previewUrl}` : ""
-            }`,
-          });
-          return;
-        }
-      } catch {
-        /* fall through to the offline preview path */
-      }
-    }
-
-    setPreview(digest.html);
+    setPreview(generateDigest(data, options).html);
     setSend({
       kind: "ok",
-      message: `Smart Report generated for ${options.email} — preview opened. You're registered for the ${options.frequency} digest.`,
+      message: `Preview generated for ${settings.emails.length} recipient${
+        settings.emails.length === 1 ? "" : "s"
+      }. Real digests dispatch on your ${settings.frequency} schedule once SMTP is configured.`,
     });
+  }
+
+  function openExport() {
+    setCopied(false);
+    setExportJson(JSON.stringify(subscribersPayload(settings), null, 2));
+  }
+
+  async function copyExport() {
+    if (!exportJson) return;
+    try {
+      await navigator.clipboard.writeText(exportJson);
+    } catch {
+      /* clipboard may be blocked — the textarea below is the fallback */
+    }
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 2000);
   }
 
   const topModel = data.meta.topModel;
@@ -172,17 +169,50 @@ export function SettingsView({ data }: { data: ArenaData }) {
         </div>
       ) : null}
 
-      {/* Email */}
-      <div className="section-head">Your email</div>
-      <input
-        className="input"
-        type="email"
-        inputMode="email"
-        placeholder="you@example.com"
-        value={settings.email}
-        onChange={(e) => update("email", e.target.value)}
-        data-testid="input-email"
-      />
+      {/* Emails — lock in one or more recipients */}
+      <div className="section-head">Your emails</div>
+      <div className="row gap-6">
+        <input
+          className="input"
+          type="email"
+          inputMode="email"
+          placeholder="you@example.com"
+          value={draft}
+          onChange={(e) => setDraft(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              addEmail();
+            }
+          }}
+          data-testid="input-email"
+        />
+        <button className="icon-btn" onClick={addEmail} aria-label="Add email" title="Add email">
+          +
+        </button>
+      </div>
+
+      {settings.emails.length > 0 ? (
+        <div className="card mt-12" style={{ padding: 4 }}>
+          {settings.emails.map((email) => (
+            <div className="email-row" key={email}>
+              <span className="email-addr">{email}</span>
+              <button
+                className="icon-btn icon-btn-ghost"
+                onClick={() => removeEmail(email)}
+                aria-label={`Remove ${email}`}
+                title="Remove"
+              >
+                ×
+              </button>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="muted small" style={{ padding: "8px 2px" }}>
+          No recipients yet — add one above.
+        </div>
+      )}
 
       {/* Frequency */}
       <div className="section-head">Frequency</div>
@@ -224,7 +254,7 @@ export function SettingsView({ data }: { data: ArenaData }) {
         ))}
       </div>
 
-      {/* Content toggles — labels only, no helper text */}
+      {/* Content toggles — labels only */}
       <div className="section-head">Content</div>
       <div className="card">
         {(
@@ -251,19 +281,20 @@ export function SettingsView({ data }: { data: ArenaData }) {
         ))}
       </div>
 
-      {/* Send test */}
-      <div className="section-head">Test it</div>
-      <button
-        className="btn btn-primary"
-        onClick={sendTest}
-        disabled={send.kind === "sending"}
-        data-testid="button-send-test"
-      >
-        {send.kind === "sending" ? "Sending…" : "Send Test Digest Now"}
+      {/* Preview */}
+      <div className="section-head">Preview</div>
+      <button className="btn btn-primary" onClick={previewDigest} data-testid="button-send-test">
+        Preview Smart Report
       </button>
 
       {send.kind === "ok" ? <div className="alert alert-ok">✓ {send.message}</div> : null}
       {send.kind === "err" ? <div className="alert alert-err">✕ {send.message}</div> : null}
+
+      {/* Production export */}
+      <div className="section-head">Scheduled delivery</div>
+      <button className="btn btn-ghost" onClick={openExport} disabled={settings.emails.length === 0}>
+        Export subscribers for production
+      </button>
 
       {preview ? (
         <Sheet onClose={() => setPreview(null)} size="lg" labelledBy="digest-preview-title">
@@ -274,6 +305,22 @@ export function SettingsView({ data }: { data: ArenaData }) {
             Exactly what lands in your inbox — built deterministically from the tracker data.
           </div>
           <iframe className="digest-frame mt-12" srcDoc={preview} title="Smart Report preview" />
+        </Sheet>
+      ) : null}
+
+      {exportJson ? (
+        <Sheet onClose={() => setExportJson(null)} size="md" labelledBy="export-title">
+          <div id="export-title" className="sheet-title">
+            Subscribers for production
+          </div>
+          <div className="tiny muted mt-8">
+            Paste this into a repo secret named <code>DIGEST_SUBSCRIBERS</code> (Settings → Secrets →
+            Actions). The scheduled workflow emails everyone here via your SMTP secrets.
+          </div>
+          <textarea className="export-json mt-12" readOnly value={exportJson} rows={10} />
+          <button className="btn btn-primary mt-12" onClick={copyExport}>
+            {copied ? "✓ Copied" : "Copy JSON"}
+          </button>
         </Sheet>
       ) : null}
     </>

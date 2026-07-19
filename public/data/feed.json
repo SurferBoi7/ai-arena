@@ -29,14 +29,14 @@
  {
   "id": "feed-inkling",
   "modelId": "inkling",
-  "title": "Inkling listed",
+  "title": "Inkling ships",
   "provider": "Thinking Machines Lab",
   "providerKey": "thinkingmachines",
   "released": "2026-07-15",
-  "ultimateScore": 0,
-  "scoreStatus": "imputed",
-  "measuredScore": null,
-  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ultimateScore": 76.7,
+  "scoreStatus": "partial",
+  "measuredScore": 88.8,
+  "imputationReason": "Partial (3 verified benchmarks). Omission penalty applied for missing benchmarks.",
   "ceilingReason": null,
   "floorReason": null,
   "family": "thinkingmachines",
@@ -51,7 +51,7 @@
   "sourceUrl": "https://thinkingmachines.ai/news/introducing-inkling/",
   "access": "Open",
   "type": "Reasoning",
-  "benchmarkCount": 0
+  "benchmarkCount": 3
  },
  {
   "id": "feed-hf:mistralai/Leanstral-1.5-119B-A6B",
@@ -384,10 +384,10 @@
   "provider": "Anthropic",
   "providerKey": "anthropic",
   "released": "2026-06-30",
-  "ultimateScore": 41.2,
+  "ultimateScore": 72.4,
   "scoreStatus": "partial",
-  "measuredScore": 57.7,
-  "imputationReason": "Partial (1 verified benchmark). Omission penalty applied for missing benchmarks.",
+  "measuredScore": 80.7,
+  "imputationReason": "Partial (3 verified benchmarks). Omission penalty applied for missing benchmarks.",
   "ceilingReason": null,
   "floorReason": null,
   "family": "sonnet",
@@ -402,7 +402,7 @@
   "sourceUrl": "https://www.anthropic.com/news/claude-sonnet-5",
   "access": "Closed",
   "type": "General",
-  "benchmarkCount": 1
+  "benchmarkCount": 3
  },
  {
   "id": "feed-lc2",
@@ -561,10 +561,10 @@
   "provider": "Zhipu AI",
   "providerKey": "zhipu",
   "released": "2026-06-13",
-  "ultimateScore": 79.4,
+  "ultimateScore": 82.7,
   "scoreStatus": "partial",
-  "measuredScore": 97.5,
-  "imputationReason": "Partial (2 verified benchmarks). Omission penalty applied for missing benchmarks.",
+  "measuredScore": 94.8,
+  "imputationReason": "Partial (3 verified benchmarks). Omission penalty applied for missing benchmarks.",
   "ceilingReason": null,
   "floorReason": null,
   "family": "glm",
@@ -580,7 +580,7 @@
   "sourceUrl": "https://docs.z.ai/release-notes/new-released",
   "access": "Open",
   "type": "Reasoning",
-  "benchmarkCount": 2
+  "benchmarkCount": 3
  },
  {
   "id": "feed-kk27",

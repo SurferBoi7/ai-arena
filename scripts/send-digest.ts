@@ -37,12 +37,22 @@ async function main() {
 
   if (argTo) {
     subscribers = [{ email: argTo, frequency: "weekly", time: "08:00", topN: 10 }];
-  } else {
-    if (!existsSync(SUBSCRIBERS_FILE)) {
-      console.log("No dispatch/subscribers.json found — nothing to send.");
-      return;
-    }
+  } else if (existsSync(SUBSCRIBERS_FILE)) {
     subscribers = JSON.parse(readFileSync(SUBSCRIBERS_FILE, "utf-8"));
+  } else if (process.env.DIGEST_SUBSCRIBERS) {
+    // Private recipients kept out of the public repo: paste the app's
+    // "Copy subscribers for production" JSON into a DIGEST_SUBSCRIBERS secret.
+    try {
+      subscribers = JSON.parse(process.env.DIGEST_SUBSCRIBERS);
+    } catch {
+      console.error("DIGEST_SUBSCRIBERS is set but is not valid JSON.");
+      process.exit(1);
+    }
+  } else {
+    console.log(
+      "No subscribers found (dispatch/subscribers.json or DIGEST_SUBSCRIBERS) — nothing to send.",
+    );
+    return;
   }
 
   if (subscribers.length === 0) {

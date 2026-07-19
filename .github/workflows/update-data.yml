@@ -129,12 +129,14 @@ jobs:
 
       - name: Check for subscribers
         id: subs
+        env:
+          DIGEST_SUBSCRIBERS: ${{ secrets.DIGEST_SUBSCRIBERS }}
         run: |
-          if [ -f dispatch/subscribers.json ]; then
+          if [ -f dispatch/subscribers.json ] || [ -n "$DIGEST_SUBSCRIBERS" ]; then
             echo "exists=true" >> "$GITHUB_OUTPUT"
           else
             echo "exists=false" >> "$GITHUB_OUTPUT"
-            echo "No dispatch/subscribers.json — skipping digest."
+            echo "No subscribers (dispatch/subscribers.json or DIGEST_SUBSCRIBERS) — skipping digest."
           fi
 
       - name: Send deterministic Smart Report
@@ -146,4 +148,6 @@ jobs:
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
           SMTP_FROM: ${{ secrets.SMTP_FROM }}
+          # Optional: recipients kept private in a secret instead of a committed file.
+          DIGEST_SUBSCRIBERS: ${{ secrets.DIGEST_SUBSCRIBERS }}
         run: npx tsx scripts/send-digest.ts

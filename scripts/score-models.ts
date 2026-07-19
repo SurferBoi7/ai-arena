@@ -10,6 +10,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import type { Model } from "../src/types";
 import { applyVendorBaselines, finalize } from "./lib/pipeline";
+import { extractBenchmarks } from "./lib/extract-benchmarks";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = resolve(__dirname, "../public/data");
@@ -28,6 +29,10 @@ function main() {
   const { filled, notes } = applyVendorBaselines(models);
   for (const n of notes) console.log(n);
   if (filled) console.log(`Vendor baselines filled ${filled} gap(s).`);
+
+  const { filled: extracted, fills } = extractBenchmarks(models);
+  for (const f of fills) console.log(`[extract] ${f.name} · ${f.key} = ${f.value}  ⟵  "${f.context}"`);
+  if (extracted) console.log(`Extracted ${extracted} real benchmark value(s) from source descriptions.`);
 
   const { models: sorted, feed, meta } = finalize(models);
 
