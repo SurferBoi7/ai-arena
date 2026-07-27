@@ -2498,6 +2498,30 @@
   "benchmarkCount": 0
  },
  {
+  "id": "feed-hf:Qwen/Qwen3-32B",
+  "modelId": "hf:Qwen/Qwen3-32B",
+  "title": "Qwen3-32B listed",
+  "provider": "Qwen",
+  "providerKey": "qwen",
+  "released": "2025-07-26",
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "measuredScore": null,
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "floorReason": null,
+  "family": "qwen3",
+  "tags": [
+   "Open Weights"
+  ],
+  "summary": "Open-weight model discovered on the HuggingFace Hub (Qwen/Qwen3-32B). Awaiting benchmark data.",
+  "highlights": [],
+  "sourceUrl": "https://huggingface.co/Qwen/Qwen3-32B",
+  "access": "Open",
+  "type": "General",
+  "benchmarkCount": 0
+ },
+ {
   "id": "feed-hf:Qwen/Qwen3-8B",
   "modelId": "hf:Qwen/Qwen3-8B",
   "title": "Qwen3-8B listed",
