@@ -1,14 +1,14 @@
 {
- "generatedAt": "2026-07-29T10:35:07.372Z",
+ "generatedAt": "2026-07-30T10:21:37.257Z",
  "source": "demandsphere-mcp+huggingface+vendor-notes",
- "modelCount": 129,
+ "modelCount": 130,
  "measuredCount": 60,
- "imputedCount": 69,
+ "imputedCount": 70,
  "sourceStatuses": [
   {
    "source": "demandsphere-mcp",
    "status": "ok",
-   "models": 129
+   "models": 130
   },
   {
    "source": "huggingface-hub",

@@ -583,6 +583,30 @@
   "benchmarkCount": 3
  },
  {
+  "id": "feed-hf:nvidia/Qwen3.6-35B-A3B-NVFP4",
+  "modelId": "hf:nvidia/Qwen3.6-35B-A3B-NVFP4",
+  "title": "Qwen3.6-35B-A3B-NVFP4 listed",
+  "provider": "nvidia",
+  "providerKey": "nvidia",
+  "released": "2026-06-12",
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "measuredScore": null,
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "floorReason": null,
+  "family": "qwen3.6",
+  "tags": [
+   "Open Weights"
+  ],
+  "summary": "Open-weight model discovered on the HuggingFace Hub (nvidia/Qwen3.6-35B-A3B-NVFP4). Awaiting benchmark data.",
+  "highlights": [],
+  "sourceUrl": "https://huggingface.co/nvidia/Qwen3.6-35B-A3B-NVFP4",
+  "access": "Open",
+  "type": "General",
+  "benchmarkCount": 0
+ },
+ {
   "id": "feed-kk27",
   "modelId": "kk27",
   "title": "Kimi K2.7 Code listed",
