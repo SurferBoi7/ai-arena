@@ -2014,6 +2014,30 @@
   "benchmarkCount": 0
  },
  {
+  "id": "feed-hf:unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+  "modelId": "hf:unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+  "title": "Qwen3-Coder-30B-A3B-Instruct-GGUF listed",
+  "provider": "unsloth",
+  "providerKey": "unsloth",
+  "released": "2026-01-30",
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "measuredScore": null,
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "floorReason": null,
+  "family": "qwen3",
+  "tags": [
+   "Open Weights"
+  ],
+  "summary": "Open-weight model discovered on the HuggingFace Hub (unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF). Awaiting benchmark data.",
+  "highlights": [],
+  "sourceUrl": "https://huggingface.co/unsloth/Qwen3-Coder-30B-A3B-Instruct-GGUF",
+  "access": "Open",
+  "type": "General",
+  "benchmarkCount": 0
+ },
+ {
   "id": "feed-hf:Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
   "modelId": "hf:Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
   "title": "Alibaba Qwen3-TTS-12Hz-1.7B-CustomVoice listed",
