@@ -60,6 +60,10 @@ export interface Model {
   tags?: string[];
   source?: string | null;
   fetchedAt?: string | null;
+  // HuggingFace mirror id ("org/repo"), when known, for a model not itself
+  // sourced from the HF Hub (e.g. an OpenRouter-discovered open-weight model).
+  // Lets the pipeline revisit its model card on a later run for benchmarks.
+  hfRef?: string | null;
 }
 
 export interface FeedItem {

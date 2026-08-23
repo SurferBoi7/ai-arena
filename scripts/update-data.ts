@@ -22,13 +22,20 @@ import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import type { Company, Model } from "../src/types";
 import { applyVendorBaselines, finalize } from "./lib/pipeline";
-import { extractBenchmarks, extractFromCard } from "./lib/extract-benchmarks";
+import {
+  extractBenchmarks,
+  extractFromCard,
+  inheritVariantBenchmarks,
+  isRedundantVariant,
+  realBenchmarkCount as realCount,
+} from "./lib/extract-benchmarks";
 import {
   fetchHuggingFace,
   fetchModelCard,
   fetchOpenRouter,
   hfQualifies,
   hfToModel,
+  isNonTextModel,
   normalizeName,
   openRouterToModel,
   resolveProvider,
@@ -44,8 +51,8 @@ const DATA_DIR = resolve(__dirname, "../public/data");
 const MAX_AGE_DAYS = 730;
 // Bound the per-run work so a scheduled run stays fast and predictable.
 const MAX_NEW_PER_RUN = 40;
-const MAX_CARD_FETCHES = 45;
-const CARD_CONCURRENCY = 6;
+const MAX_CARD_FETCHES = 160;
+const CARD_CONCURRENCY = 10;
 
 function readJson<T>(file: string): T {
   return JSON.parse(readFileSync(resolve(DATA_DIR, file), "utf-8")) as T;
@@ -158,6 +165,13 @@ async function discover(existing: Model[], now: string) {
     if (!norm || knownNames.has(norm)) return;
     if (hfId && knownHf.has(hfId.toLowerCase())) return;
     if (ageInDays(model.released) > MAX_AGE_DAYS) return;
+    // Skip a vendor-confirmed re-serving of an already-tracked model that
+    // itself has no real benchmark data (e.g. "GPT-5.6 Luna Pro" when
+    // "GPT-5.6 Luna" is unscored): admitting it would just be a second
+    // permanent zero for the same underlying weights, not a new data point.
+    // Checked against both committed models and this run's own candidates so
+    // catalogue order can't let a duplicate slip through.
+    if (isRedundantVariant(model, existing.concat(candidates.map((c) => c.model)))) return;
     knownIds.add(model.id);
     knownNames.add(norm);
     if (hfId) knownHf.add(hfId.toLowerCase());
@@ -202,17 +216,53 @@ async function discover(existing: Model[], now: string) {
 }
 
 // Pull real descriptions + benchmark tables from published model cards. Applies
-// to new arrivals first, then to any tracked open model still lacking data —
-// so a model that publishes results later is picked up on a subsequent run.
+// to new arrivals first, then to every tracked open-weight model still lacking
+// a score — whether it was discovered via HuggingFace directly (`hf:` id) or
+// via OpenRouter with a known HF mirror (`hfRef`) — so a model that publishes
+// results later is picked up on a subsequent run rather than staying blind
+// forever. Zero-benchmark models are prioritised over partial ones so the
+// "no score at all" backlog clears first.
+function hfIdOf(m: Model): string | null {
+  if (m.id.startsWith("hf:")) return m.id.slice(3);
+  return m.hfRef || null;
+}
+
 async function enrich(batch: DiscoveredModel[], existing: Model[], now: string) {
   const targets: { model: Model; hfId: string }[] = [];
-  for (const d of batch) if (d.hfId) targets.push({ model: d.model, hfId: d.hfId });
-  for (const m of existing) {
+  const seen = new Set<string>();
+  for (const d of batch) {
+    if (!d.hfId || seen.has(d.model.id)) continue;
+    seen.add(d.model.id);
+    targets.push({ model: d.model, hfId: d.hfId });
+  }
+
+  const backlog = existing.filter((m) => {
+    if (seen.has(m.id)) return false;
+    const hfId = hfIdOf(m);
+    if (!hfId) return false;
+    // A card that already yielded SOME data is on a cooldown — it's unlikely
+    // to change again soon, so don't burn budget re-fetching it every run. A
+    // model still sitting at zero gets no such grace: either the source
+    // genuinely has nothing (worth confirming again as cards get updated), or
+    // it was fetched before the extractor could read its table shape — in
+    // which case retrying is exactly what recovers it, as happened here.
+    if (realCount(m) > 0 && ageInDays(m.fetchedAt) < 6) return false;
+    return true;
+  });
+  // Models with zero real benchmarks first; within each group, longest since
+  // last fetch first, so the backlog converges instead of favouring whichever
+  // model happens to sort first alphabetically every run.
+  backlog.sort((a, b) => {
+    const az = realCount(a) === 0 ? 0 : 1;
+    const bz = realCount(b) === 0 ? 0 : 1;
+    if (az !== bz) return az - bz;
+    return ageInDays(b.fetchedAt) === ageInDays(a.fetchedAt) ? 0 : ageInDays(b.fetchedAt) - ageInDays(a.fetchedAt);
+  });
+  for (const m of backlog) {
     if (targets.length >= MAX_CARD_FETCHES) break;
-    if (m.benchmarkCount > 0) continue;
-    if (!m.id.startsWith("hf:")) continue;
-    if (ageInDays(m.fetchedAt) < 6) continue; // don't re-fetch the same card daily
-    targets.push({ model: m, hfId: m.id.slice(3) });
+    const hfId = hfIdOf(m)!;
+    seen.add(m.id);
+    targets.push({ model: m, hfId });
   }
 
   const slice = targets.slice(0, MAX_CARD_FETCHES);
@@ -237,10 +287,35 @@ async function enrich(batch: DiscoveredModel[], existing: Model[], now: string) 
 }
 
 async function main() {
-  const models = readJson<Model[]>("models.json");
+  let models = readJson<Model[]>("models.json");
   const companies = readJson<Company[]>("companies.json");
   const now = new Date().toISOString();
   console.log(`Loaded ${models.length} baseline models.`);
+
+  // Self-healing prune: a handful of non-text models (TTS/OCR/image-edit) sat
+  // in the tracked set from before this scope was made explicit. They can
+  // never score on reasoning/coding benchmarks, so tracking them just adds a
+  // permanent, misleading zero. Filtered at discovery for new arrivals too —
+  // this catches anything already committed.
+  const before = models.length;
+  models = models.filter((m) => !isNonTextModel(m.name, m.tags || []));
+  const pruned = before - models.length;
+  if (pruned) console.log(`Pruned ${pruned} non-text model(s) (TTS/OCR/image/embedding — out of scope).`);
+
+  // Same self-healing idea for re-served SKU duplicates: a model whose own
+  // description vendor-confirms it's identical weights to an already-tracked,
+  // still-unscored sibling ("GPT-5.6 Luna Pro" = "GPT-5.6 Luna", just served
+  // with reasoning.mode=pro) contributes nothing as its own leaderboard row —
+  // it's the same permanent zero as its twin. The `isRedundantVariant` filter
+  // now blocks these at discovery time, but this catches ones already
+  // committed before that filter existed. If the sibling has real data,
+  // inheritance (below) fills this model in instead of pruning it.
+  const beforeVariants = models.length;
+  models = models.filter((m) => realCount(m) > 0 || !isRedundantVariant(m, models));
+  const prunedVariants = beforeVariants - models.length;
+  if (prunedVariants) {
+    console.log(`Pruned ${prunedVariants} redundant serving-variant(s) of an already-tracked, unscored model.`);
+  }
 
   let sourceStatuses: { source: string; status: string; models?: number; note?: string }[] = [];
 
@@ -273,6 +348,12 @@ async function main() {
   const { filled: extracted, fills } = extractBenchmarks(models);
   for (const f of fills) console.log(`[extract] ${f.name} · ${f.key} = ${f.value}  ⟵  "${f.context}"`);
   if (extracted) console.log(`Extracted ${extracted} real benchmark value(s) from source text.`);
+
+  // Vendor-stated equivalence ("same underlying model as X, served with...").
+  // Not an estimate — using the vendor's own words to copy X's real scores.
+  const { filled: inherited, fills: inheritedFills } = inheritVariantBenchmarks(models);
+  for (const f of inheritedFills) console.log(`[inherit] ${f.name} · ${f.key} = ${f.value}  ⟵  ${f.context}`);
+  if (inherited) console.log(`Inherited ${inherited} benchmark value(s) from vendor-stated equivalent models.`);
 
   // Fold scrape aliases onto their parent company (qwen→alibaba, meta-llama→meta,
   // openai-community→openai …) so the Archive shows one entry per lab. Only true

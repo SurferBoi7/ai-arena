@@ -105,7 +105,9 @@ function findValue(text: string, key: BenchmarkKey): { value: number; context: s
 // Row labels → tracked benchmark key. Anchored so "SWE-bench Pro",
 // "Global-MMLU-Lite" and similar near-misses never match.
 const ROW_PATTERNS: [BenchmarkKey, RegExp][] = [
-  ["swe_bench", /^swe[-\s]?bench\s+verified\b/i],
+  // "bench" is optional: some cards label the row "SWE Verified (Resolved)"
+  // rather than "SWE-bench Verified".
+  ["swe_bench", /^swe[-\s]?(?:bench\s+)?verified\b/i],
   ["hle", /^(?:humanity'?s\s+last\s+exam|hle)\b/i],
   ["gpqa_diamond", /^gpqa(?:[-\s]?diamond)?\b/i],
   ["livecode_bench", /^livecode[-\s]?bench\b/i],
@@ -117,6 +119,15 @@ const ROW_PATTERNS: [BenchmarkKey, RegExp][] = [
 
 function identityOf(s: string): string {
   return (s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+// Substring containment is only meaningful once both sides carry real
+// information — a 1–2 character header ("A", "v1") would otherwise
+// false-match almost anything by sheer chance.
+function identityMatches(a: string, b: string): boolean {
+  if (!a || !b) return false;
+  if (a === b) return true;
+  return (a.length >= 4 && b.includes(a)) || (b.length >= 4 && a.includes(b));
 }
 
 // Cards also carry throughput / speculative-decoding tables that reuse the same
@@ -192,7 +203,7 @@ export function extractFromMarkdown(
     for (let c = 1; c < header.length; c++) {
       const h = identityOf(header[c]);
       if (!h) continue;
-      if (selfIds.some((s) => s && (h === s || h.includes(s) || s.includes(h)))) {
+      if (selfIds.some((s) => identityMatches(h, s))) {
         col = c;
         break;
       }
@@ -205,8 +216,23 @@ export function extractFromMarkdown(
     for (let r = i + 2; r < lines.length && /^\s*\|/.test(lines[r]); r++) {
       const cells = splitRow(lines[r]);
       if (cells.length <= col) continue;
-      const label = cells[0].replace(/\*\*|\*|`/g, "").trim();
-      const hit = ROW_PATTERNS.find(([, re]) => re.test(label));
+      // Some cards group rows under a leading category column (e.g.
+      // "| English | MMLU-Pro (EM) | 88.3 | ... |" or the category cell left
+      // blank on continuation rows), so the benchmark name can sit in cells[0]
+      // OR cells[1]. Try the plain layout first, then the grouped layout —
+      // whichever cell actually names a tracked benchmark wins.
+      let hit: (typeof ROW_PATTERNS)[number] | undefined;
+      let label = "";
+      for (const idx of [0, 1]) {
+        if (idx >= col) break; // never treat a value column as the label
+        const candidate = (cells[idx] || "").replace(/\*\*|\*|`/g, "").trim();
+        const found_ = ROW_PATTERNS.find(([, re]) => re.test(candidate));
+        if (found_) {
+          hit = found_;
+          label = candidate;
+          break;
+        }
+      }
       if (!hit) continue;
       const value = parseCell(cells[col]);
       if (value === null || !isPlausible(hit[0], value)) continue;
@@ -250,6 +276,131 @@ export function extractFromCard(model: Model, markdown: string): ExtractedFill[]
     fills.push({ modelId: model.id, name: model.name, key: c.key, value: c.value, context: c.context });
   }
   return fills;
+}
+
+// ---------------------------------------------------------------------------
+// Variant inheritance — vendor-stated equivalence, not imputation.
+// ---------------------------------------------------------------------------
+// Some catalogue entries are explicitly the SAME underlying model as a sibling
+// already in the dataset, just served differently ("GPT-5.6 Luna Pro is the
+// same underlying model as GPT-5.6 Luna, served with reasoning.mode set to
+// pro"). Copying the sibling's real benchmarks here is not an estimate — it's
+// using the vendor's own words. Deliberately excludes "successor"/"upgrade"
+// language: a successor is a DIFFERENT model and must earn its own scores.
+// ---------------------------------------------------------------------------
+
+// Two idioms vendors actually use: the name right after the equivalence
+// phrase ("same underlying model as X"), or the name at the tail of the
+// sentence ("identical capabilities ... relative to regular X").
+//
+// The captured name is a bounded run of space-separated tokens rather than a
+// non-greedy character class stopped by a punctuation lookahead — model names
+// routinely contain periods ("GPT-5.6"), and a lookahead built on bare "."
+// mistakes that decimal point for the end of the sentence, truncating "GPT-5.6
+// Luna" down to just "GPT-5". Token counting can't make that mistake: a period
+// only ends a token run when it's followed by whitespace/end-of-string, which
+// is what actually distinguishes sentence punctuation from a version number.
+// A token is an alnum run, plus any internal "-" or "." immediately followed
+// by more alnum characters — that's what lets "GPT-5.6" collapse to one token
+// while a real sentence-ending "." still closes the name off (nothing alnum
+// follows it). No lookahead trickery needed: `[A-Za-z0-9]+` after the
+// punctuation simply fails to match — and so the group doesn't consume it —
+// when the punctuation isn't mid-token. Up to 4 tokens, so "GPT-5.6 Luna" (2)
+// and "Claude Opus 4.8" (3) both capture in full.
+const NAME_TOKEN = "[A-Za-z0-9]+(?:[.-][A-Za-z0-9]+)*";
+const FIRST_TOKEN = "[A-Z][A-Za-z0-9]*(?:[.-][A-Za-z0-9]+)*"; // must start uppercase
+const EQUIVALENCE_RE = [
+  new RegExp(
+    `\\b(?:same (?:underlying )?model as|identical (?:capabilities|to)(?: as)?)\\s+` +
+      `(${FIRST_TOKEN}(?:\\s+${NAME_TOKEN}){0,3})`,
+  ),
+  new RegExp(
+    `\\bidentical capabilities\\b[\\s\\S]{0,120}?\\brelative to\\s+(?:the\\s+)?(?:regular|normal|standard)?\\s*` +
+      `(${FIRST_TOKEN}(?:\\s+${NAME_TOKEN}){0,3})\\.?\\s*$`,
+    "i",
+  ),
+];
+
+// Counts real values directly rather than trusting the cached `benchmarkCount`
+// field, which mid-pipeline may still reflect the state before this run's own
+// extraction passes filled anything in.
+export function realBenchmarkCount(m: Model): number {
+  return Object.values(m.benchmarks || {}).filter((v) => typeof v === "number").length;
+}
+
+// Extracts the sibling name a description explicitly claims equivalence to,
+// then resolves it against the given model list. Shared by inheritance (copy
+// real numbers from a scored sibling) and by discovery (skip admitting a new
+// row that's just a re-served SKU of an already-tracked, still-unscored
+// model — see `isRedundantVariant` below).
+export function resolveEquivalentSibling(
+  description: string | null | undefined,
+  models: Model[],
+  selfId: string,
+): Model | null {
+  const text = description || "";
+  let claimedName: string | null = null;
+  for (const re of EQUIVALENCE_RE) {
+    const m = text.match(re);
+    if (m) {
+      claimedName = m[1].trim().replace(/\s+/g, " ");
+      break;
+    }
+  }
+  if (!claimedName) return null;
+  const siblingId = identityOf(claimedName);
+  const byId = models.find((o) => o.id !== selfId && identityOf(o.name) === siblingId);
+  if (byId) return byId;
+  // Unambiguous containment fallback (handles a trailing suffix the regex's
+  // token bound missed).
+  const candidates = models.filter(
+    (o) => o.id !== selfId && siblingId.length >= 4 && identityOf(o.name).includes(siblingId),
+  );
+  return candidates.length === 1 ? candidates[0] : null;
+}
+
+// True when a candidate is a vendor-confirmed re-serving of an ALREADY-TRACKED
+// model that itself has no real benchmark data. Admitting it as a separate row
+// would just be a second permanent zero for the same underlying weights — pure
+// duplication, not a new data point — so discovery skips it. A sibling that
+// DOES have real data is still admitted (inheritance below gives it that
+// data, and the distinct serving mode is worth showing).
+export function isRedundantVariant(model: Model, existing: Model[]): boolean {
+  const sibling = resolveEquivalentSibling(model.description, existing, model.id);
+  return sibling !== null && realBenchmarkCount(sibling) === 0;
+}
+
+export function inheritVariantBenchmarks(models: Model[]): { filled: number; fills: ExtractedFill[] } {
+  const fills: ExtractedFill[] = [];
+
+  for (const model of models) {
+    if (realBenchmarkCount(model) > 0) continue; // only fill genuine gaps
+    const sibling = resolveEquivalentSibling(model.description, models, model.id);
+    if (!sibling || realBenchmarkCount(sibling) === 0) continue;
+
+    model.benchmarks = model.benchmarks || {};
+    model.benchmarkSources = model.benchmarkSources || {};
+    let any = false;
+    for (const [key, raw] of Object.entries(sibling.benchmarks || {})) {
+      const k = key as BenchmarkKey;
+      if (typeof raw !== "number") continue;
+      if (typeof model.benchmarks[k] === "number") continue;
+      model.benchmarks[k] = raw;
+      model.benchmarkSources[k] = "vendor";
+      any = true;
+      fills.push({
+        modelId: model.id,
+        name: model.name,
+        key: k,
+        value: raw,
+        context: `vendor-stated identical underlying model as "${sibling.name}"`,
+      });
+    }
+    if (any) {
+      model.imputationReason = `Inherited from ${sibling.name}: vendor-stated identical underlying model (same weights, different serving mode).`;
+    }
+  }
+  return { filled: fills.length, fills };
 }
 
 export function extractBenchmarks(models: Model[]): { filled: number; fills: ExtractedFill[] } {

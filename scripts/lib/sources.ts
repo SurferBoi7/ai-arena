@@ -122,6 +122,28 @@ export function isNoiseRepo(id: string): boolean {
   return DERIVATIVE_RE.test(name);
 }
 
+// The tracker's 8 benchmarks (SWE-bench, MMLU-Pro, HLE, ...) measure text
+// reasoning and coding. A TTS, OCR, image-generation, or embedding model has
+// no meaningful score on any of them — tracking one just adds a permanent
+// zero to the board, which looks like missing data but is really a wrong
+// category of model. These are filtered at the source rather than scored.
+const NON_TEXT_RE =
+  /\b(tts|text-to-speech|speech-to-text|asr|whisper|voxtral|vocoder|voice-?clone|ocr|image-to-image|text-to-image|image-edit|inpaint|upscal\w*|super-?resolution|embedding|reranker|rerank|feature-extract\w*|clip|diffusion|vae|controlnet|depth-estimation)\b/i;
+
+export function isNonTextModel(nameOrId: string, tags: string[] = [], pipelineTag = ""): boolean {
+  const NON_TEXT_TAGS = new Set([
+    "text-to-speech", "automatic-speech-recognition", "text-to-image",
+    "image-to-image", "feature-extraction", "sentence-similarity",
+    "image-segmentation", "depth-estimation", "image-classification",
+    "audio-classification", "audio-to-audio", "unconditional-image-generation",
+    "text-to-video", "image-to-video", "image-to-text-classification",
+  ]);
+  if (pipelineTag && NON_TEXT_TAGS.has(pipelineTag)) return true;
+  if (tags.some((t) => NON_TEXT_TAGS.has(t.toLowerCase()))) return true;
+  const name = (nameOrId.split("/").pop() || nameOrId).toLowerCase();
+  return NON_TEXT_RE.test(name);
+}
+
 // =============================================================================
 // OpenRouter — closed + open frontier catalogue
 // =============================================================================
@@ -187,6 +209,13 @@ export function openRouterToModel(m: ORModel, now: string): DiscoveredModel | nu
   const multimodal = /image|audio|video/.test(modality);
   const ctx = m.context_length ?? null;
 
+  // Output modality must include text (a TTS or image-gen endpoint can never
+  // score on our text-reasoning benchmarks), and the name mustn't match a
+  // known non-text category the modality field doesn't always flag.
+  const outputModality = modality.includes("->") ? modality.split("->")[1] : modality;
+  const outputsText = !modality || outputModality.includes("text");
+  if (!outputsText || isNonTextModel(displayName)) return null;
+
   return {
     hfId: m.hugging_face_id ?? null,
     model: {
@@ -225,6 +254,7 @@ export function openRouterToModel(m: ORModel, now: string): DiscoveredModel | nu
       ],
       source: "openrouter",
       fetchedAt: now,
+      hfRef: m.hugging_face_id ?? null,
     } as Model,
   };
 }
@@ -273,6 +303,7 @@ export async function fetchHuggingFace(): Promise<HFModel[]> {
 // traction — this keeps the daily firehose of fine-tunes off the leaderboard.
 export function hfQualifies(m: HFModel): boolean {
   if (!m.id || isNoiseRepo(m.id)) return false;
+  if (isNonTextModel(m.id, m.tags || [], m.pipeline_tag || "")) return false;
   const ns = m.id.split("/")[0]?.toLowerCase() ?? "";
   const known = Boolean(PROVIDERS[ns]);
   const downloads = m.downloads ?? 0;
