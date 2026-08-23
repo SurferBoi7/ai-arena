@@ -22,8 +22,11 @@ on:
   push:
     branches: [main, master]
   schedule:
-    # 08:00 UTC daily — re-scrape, re-score, redeploy.
-    - cron: "0 8 * * *"
+    # Data refresh every 6 hours — re-scrape, re-score, redeploy.
+    - cron: "0 0,6,12,18 * * *"
+    # Separate daily slot that also sends the Smart Report digest, so moving the
+    # refresh to 6-hourly doesn't email subscribers four times a day.
+    - cron: "30 8 * * *"
   workflow_dispatch:
     inputs:
       send_digest:
@@ -107,8 +110,8 @@ jobs:
   dispatch:
     name: Send Smart Report digest
     runs-on: ubuntu-latest
-    # Only dispatch on schedule or manual runs — not on every push.
-    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.send_digest)
+    # Only the daily 08:30 slot dispatches, plus manual runs that ask for it.
+    if: github.event.schedule == '30 8 * * *' || (github.event_name == 'workflow_dispatch' && inputs.send_digest)
     steps:
       - name: Checkout
         uses: actions/checkout@v4
