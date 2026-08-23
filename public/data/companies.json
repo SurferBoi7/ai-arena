@@ -1,23 +1,23 @@
 [
  {
-  "key": "openai",
-  "name": "OpenAI",
-  "monogram": "AI",
-  "color": "#10a37f",
-  "blurb": "Maker of the GPT and o-series frontier models.",
-  "modelCount": 30,
-  "latestRelease": "2026-07-09",
-  "latestModel": "GPT-5.6 Luna"
- },
- {
   "key": "alibaba",
   "name": "Alibaba / Qwen",
   "monogram": "Q",
   "color": "#ff6a00",
   "blurb": "Alibaba's Qwen open-weight model series.",
-  "modelCount": 29,
+  "modelCount": 44,
   "latestRelease": "2026-08-14",
   "latestModel": "Qwen3.8 27B"
+ },
+ {
+  "key": "openai",
+  "name": "OpenAI",
+  "monogram": "AI",
+  "color": "#10a37f",
+  "blurb": "Maker of the GPT and o-series frontier models.",
+  "modelCount": 38,
+  "latestRelease": "2026-07-09",
+  "latestModel": "GPT-5.6 Luna"
  },
  {
   "key": "google",
@@ -25,9 +25,19 @@
   "monogram": "G",
   "color": "#4285f4",
   "blurb": "Google DeepMind — the Gemini model line.",
-  "modelCount": 21,
+  "modelCount": 22,
   "latestRelease": "2026-08-13",
   "latestModel": "Gemini 3.7 Flash"
+ },
+ {
+  "key": "anthropic",
+  "name": "Anthropic",
+  "monogram": "A",
+  "color": "#d97757",
+  "blurb": "Creator of the Claude model family and originator of Constitutional AI.",
+  "modelCount": 16,
+  "latestRelease": "2026-07-24",
+  "latestModel": "Claude Opus 5 (Fast)"
  },
  {
   "key": "meta",
@@ -40,22 +50,12 @@
   "latestModel": "Muse Spark 1.2 Contributor"
  },
  {
-  "key": "anthropic",
-  "name": "Anthropic",
-  "monogram": "A",
-  "color": "#d97757",
-  "blurb": "Creator of the Claude model family and originator of Constitutional AI.",
-  "modelCount": 15,
-  "latestRelease": "2026-07-24",
-  "latestModel": "Claude Opus 5 (Fast)"
- },
- {
   "key": "mistral",
   "name": "Mistral AI",
   "monogram": "M",
   "color": "#ff7000",
   "blurb": "European lab behind the Mistral and Mixtral families.",
-  "modelCount": 14,
+  "modelCount": 16,
   "latestRelease": "2026-07-15",
   "latestModel": "Mistral Leanstral-1.5-119B-A6B"
  },
@@ -65,7 +65,7 @@
   "monogram": "Z",
   "color": "#3b5bdb",
   "blurb": "Chinese lab behind the GLM model family.",
-  "modelCount": 14,
+  "modelCount": 16,
   "latestRelease": "2026-08-19",
   "latestModel": "GLM Latest"
  },
@@ -75,7 +75,7 @@
   "monogram": "D",
   "color": "#4d6bfe",
   "blurb": "Chinese lab behind DeepSeek V/R reasoning models.",
-  "modelCount": 12,
+  "modelCount": 15,
   "latestRelease": "2026-08-21",
   "latestModel": "DeepSeek V4 Flash Vision Exp"
  },
@@ -100,24 +100,24 @@
   "latestModel": "Seed 2.1 Turbo"
  },
  {
-  "key": "minimax",
-  "name": "MiniMax",
-  "monogram": "X",
-  "color": "#e64980",
-  "blurb": "Chinese lab behind the MiniMax-01 and M-series models.",
-  "modelCount": 6,
-  "latestRelease": "2026-06-01",
-  "latestModel": "MiniMax M3"
- },
- {
   "key": "moonshot",
   "name": "Moonshot AI",
   "monogram": "K",
   "color": "#16181d",
   "blurb": "Builder of the Kimi long-context models.",
-  "modelCount": 6,
+  "modelCount": 8,
   "latestRelease": "2026-07-16",
   "latestModel": "Kimi K3"
+ },
+ {
+  "key": "minimax",
+  "name": "MiniMax",
+  "monogram": "X",
+  "color": "#e64980",
+  "blurb": "Chinese lab behind the MiniMax-01 and M-series models.",
+  "modelCount": 7,
+  "latestRelease": "2026-06-01",
+  "latestModel": "MiniMax M3"
  },
  {
   "key": "inclusionai",
@@ -128,6 +128,16 @@
   "modelCount": 5,
   "latestRelease": "2026-08-10",
   "latestModel": "Ling-3.0-tiny"
+ },
+ {
+  "key": "amazon",
+  "name": "Amazon",
+  "monogram": "AZ",
+  "color": "#ff9900",
+  "blurb": "Amazon — Nova foundation models.",
+  "modelCount": 4,
+  "latestRelease": "2025-12-02",
+  "latestModel": "Nova 2 Pro Preview"
  },
  {
   "key": "kwaipilot",
@@ -180,16 +190,6 @@
   "latestModel": "Aion-3.0"
  },
  {
-  "key": "amazon",
-  "name": "Amazon",
-  "monogram": "AZ",
-  "color": "#ff9900",
-  "blurb": "Amazon — Nova foundation models.",
-  "modelCount": 3,
-  "latestRelease": "2025-12-02",
-  "latestModel": "Nova 2 Pro Preview"
- },
- {
   "key": "cohere",
   "name": "Cohere",
   "monogram": "C",
@@ -198,6 +198,16 @@
   "modelCount": 2,
   "latestRelease": "2026-05-20",
   "latestModel": "Command A+"
+ },
+ {
+  "key": "ibm-granite",
+  "name": "Ibm Granite",
+  "monogram": "IB",
+  "color": "#d34556",
+  "blurb": "Models tracked from Ibm Granite.",
+  "modelCount": 2,
+  "latestRelease": "2026-04-30",
+  "latestModel": "Granite 4.1 8B"
  },
  {
   "key": "nex-agi",
@@ -228,6 +238,16 @@
   "modelCount": 2,
   "latestRelease": "2026-07-21",
   "latestModel": "Laguna S 2.1"
+ },
+ {
+  "key": "relace",
+  "name": "Relace",
+  "monogram": "RE",
+  "color": "#bc45d3",
+  "blurb": "Models tracked from Relace.",
+  "modelCount": 2,
+  "latestRelease": "2025-12-08",
+  "latestModel": "Relace Search"
  },
  {
   "key": "sakana",
@@ -300,16 +320,6 @@
   "latestModel": "Trinity Large Thinking"
  },
  {
-  "key": "ibm-granite",
-  "name": "Ibm Granite",
-  "monogram": "IB",
-  "color": "#d34556",
-  "blurb": "Models tracked from Ibm Granite.",
-  "modelCount": 1,
-  "latestRelease": "2026-04-30",
-  "latestModel": "Granite 4.1 8B"
- },
- {
   "key": "inception",
   "name": "Inception",
   "monogram": "IN",
@@ -360,6 +370,16 @@
   "latestModel": "Perceptron Mk1"
  },
  {
+  "key": "perplexity",
+  "name": "Perplexity",
+  "monogram": "PE",
+  "color": "#8cd345",
+  "blurb": "Models tracked from Perplexity.",
+  "modelCount": 1,
+  "latestRelease": "2025-10-30",
+  "latestModel": "Sonar Pro Search"
+ },
+ {
   "key": "rekaai",
   "name": "Rekaai",
   "monogram": "RE",
@@ -370,16 +390,6 @@
   "latestModel": "Reka Edge"
  },
  {
-  "key": "relace",
-  "name": "Relace",
-  "monogram": "RE",
-  "color": "#bc45d3",
-  "blurb": "Models tracked from Relace.",
-  "modelCount": 1,
-  "latestRelease": "2025-12-08",
-  "latestModel": "Relace Search"
- },
- {
   "key": "stealth",
   "name": "Stealth",
   "monogram": "ST",
@@ -388,6 +398,16 @@
   "modelCount": 1,
   "latestRelease": "2026-08-20",
   "latestModel": "Ox Alpha"
+ },
+ {
+  "key": "thedrummer",
+  "name": "Thedrummer",
+  "monogram": "TH",
+  "color": "#d39845",
+  "blurb": "Models tracked from Thedrummer.",
+  "modelCount": 1,
+  "latestRelease": "2025-09-27",
+  "latestModel": "Cydonia 24B V4.1"
  },
  {
   "key": "trl-internal-testing",
