@@ -5,7 +5,7 @@
   "monogram": "Q",
   "color": "#ff6a00",
   "blurb": "Alibaba's Qwen open-weight model series.",
-  "modelCount": 22,
+  "modelCount": 25,
   "latestRelease": "2026-08-14",
   "latestModel": "Qwen3.8 27B"
  },
@@ -15,9 +15,19 @@
   "monogram": "AI",
   "color": "#10a37f",
   "blurb": "Maker of the GPT and o-series frontier models.",
-  "modelCount": 18,
+  "modelCount": 23,
   "latestRelease": "2026-07-09",
   "latestModel": "GPT-5.6 Luna"
+ },
+ {
+  "key": "google",
+  "name": "Google",
+  "monogram": "G",
+  "color": "#4285f4",
+  "blurb": "Google DeepMind — the Gemini model line.",
+  "modelCount": 21,
+  "latestRelease": "2026-08-13",
+  "latestModel": "Gemini 3.7 Flash"
  },
  {
   "key": "meta",
@@ -30,14 +40,14 @@
   "latestModel": "Muse Spark 1.2 Contributor"
  },
  {
-  "key": "google",
-  "name": "Google",
-  "monogram": "G",
-  "color": "#4285f4",
-  "blurb": "Google DeepMind — the Gemini model line.",
-  "modelCount": 14,
-  "latestRelease": "2026-08-13",
-  "latestModel": "Gemini 3.7 Flash"
+  "key": "anthropic",
+  "name": "Anthropic",
+  "monogram": "A",
+  "color": "#d97757",
+  "blurb": "Creator of the Claude model family and originator of Constitutional AI.",
+  "modelCount": 15,
+  "latestRelease": "2026-07-24",
+  "latestModel": "Claude Opus 5 (Fast)"
  },
  {
   "key": "deepseek",
@@ -60,22 +70,12 @@
   "latestModel": "Mistral Leanstral-1.5-119B-A6B"
  },
  {
-  "key": "anthropic",
-  "name": "Anthropic",
-  "monogram": "A",
-  "color": "#d97757",
-  "blurb": "Creator of the Claude model family and originator of Constitutional AI.",
-  "modelCount": 11,
-  "latestRelease": "2026-07-24",
-  "latestModel": "Claude Opus 5 (Fast)"
- },
- {
   "key": "zhipu",
   "name": "Zhipu AI",
   "monogram": "Z",
   "color": "#3b5bdb",
   "blurb": "Chinese lab behind the GLM model family.",
-  "modelCount": 11,
+  "modelCount": 12,
   "latestRelease": "2026-08-19",
   "latestModel": "GLM Latest"
  },
@@ -85,7 +85,7 @@
   "monogram": "X",
   "color": "#e5e7eb",
   "blurb": "Elon Musk's lab, builder of the Grok models.",
-  "modelCount": 8,
+  "modelCount": 9,
   "latestRelease": "2026-08-12",
   "latestModel": "Grok 4.6"
  },
@@ -95,9 +95,19 @@
   "monogram": "K",
   "color": "#16181d",
   "blurb": "Builder of the Kimi long-context models.",
-  "modelCount": 5,
+  "modelCount": 6,
   "latestRelease": "2026-07-16",
   "latestModel": "Kimi K3"
+ },
+ {
+  "key": "inclusionai",
+  "name": "InclusionAI",
+  "monogram": "IN",
+  "color": "#45d362",
+  "blurb": "Models tracked from InclusionAI.",
+  "modelCount": 5,
+  "latestRelease": "2026-08-10",
+  "latestModel": "Ling-3.0-tiny"
  },
  {
   "key": "bytedance",
@@ -108,6 +118,16 @@
   "modelCount": 4,
   "latestRelease": "2026-08-12",
   "latestModel": "Seed 2.1 Turbo"
+ },
+ {
+  "key": "kwaipilot",
+  "name": "Kwaipilot",
+  "monogram": "KW",
+  "color": "#d37545",
+  "blurb": "Models tracked from Kwaipilot.",
+  "modelCount": 4,
+  "latestRelease": "2026-07-23",
+  "latestModel": "KAT-Coder-V2.5-Dev"
  },
  {
   "key": "microsoft",
@@ -140,14 +160,14 @@
   "latestModel": "Hy-MT2-1.8B"
  },
  {
-  "key": "kwaipilot",
-  "name": "Kwaipilot",
-  "monogram": "KW",
-  "color": "#d37545",
-  "blurb": "Models tracked from Kwaipilot.",
-  "modelCount": 3,
-  "latestRelease": "2026-07-23",
-  "latestModel": "KAT-Coder-V2.5-Dev"
+  "key": "aion-labs",
+  "name": "Aion Labs",
+  "monogram": "AI",
+  "color": "#45add3",
+  "blurb": "Models tracked from Aion Labs.",
+  "modelCount": 2,
+  "latestRelease": "2026-07-07",
+  "latestModel": "Aion-3.0"
  },
  {
   "key": "amazon",
@@ -170,14 +190,14 @@
   "latestModel": "Command A+"
  },
  {
-  "key": "inclusionai",
-  "name": "InclusionAI",
-  "monogram": "IN",
-  "color": "#45d362",
-  "blurb": "Models tracked from InclusionAI.",
+  "key": "nex-agi",
+  "name": "Nex Agi",
+  "monogram": "NE",
+  "color": "#d3455a",
+  "blurb": "Models tracked from Nex Agi.",
   "modelCount": 2,
-  "latestRelease": "2026-08-10",
-  "latestModel": "Ling-3.0-tiny"
+  "latestRelease": "2026-06-24",
+  "latestModel": "Nex-N2-Mini"
  },
  {
   "key": "nous",
@@ -190,6 +210,36 @@
   "latestModel": "Hermes 4 405B"
  },
  {
+  "key": "nvidia",
+  "name": "NVIDIA",
+  "monogram": "NV",
+  "color": "#d39845",
+  "blurb": "Models tracked from NVIDIA.",
+  "modelCount": 2,
+  "latestRelease": "2026-08-11",
+  "latestModel": "Nemotron 3.5 Lightning"
+ },
+ {
+  "key": "poolside",
+  "name": "Poolside",
+  "monogram": "PO",
+  "color": "#459dd3",
+  "blurb": "Models tracked from Poolside.",
+  "modelCount": 2,
+  "latestRelease": "2026-07-21",
+  "latestModel": "Laguna S 2.1"
+ },
+ {
+  "key": "sakana",
+  "name": "Sakana",
+  "monogram": "SA",
+  "color": "#d37c45",
+  "blurb": "Models tracked from Sakana.",
+  "modelCount": 2,
+  "latestRelease": "2026-08-11",
+  "latestModel": "Sakana Namazu"
+ },
+ {
   "key": "thinkingmachines",
   "name": "Thinking Machines Lab",
   "monogram": "TM",
@@ -198,6 +248,36 @@
   "modelCount": 2,
   "latestRelease": "2026-07-30",
   "latestModel": "Inkling Small"
+ },
+ {
+  "key": "xiaomi",
+  "name": "Xiaomi",
+  "monogram": "XI",
+  "color": "#4564d3",
+  "blurb": "Models tracked from Xiaomi.",
+  "modelCount": 2,
+  "latestRelease": "2026-04-22",
+  "latestModel": "MiMo-V2.5"
+ },
+ {
+  "key": "arcee-ai",
+  "name": "Arcee Ai",
+  "monogram": "AR",
+  "color": "#d34577",
+  "blurb": "Models tracked from Arcee Ai.",
+  "modelCount": 1,
+  "latestRelease": "2026-04-01",
+  "latestModel": "Trinity Large Thinking"
+ },
+ {
+  "key": "ibm-granite",
+  "name": "Ibm Granite",
+  "monogram": "IB",
+  "color": "#d34556",
+  "blurb": "Models tracked from Ibm Granite.",
+  "modelCount": 1,
+  "latestRelease": "2026-04-30",
+  "latestModel": "Granite 4.1 8B"
  },
  {
   "key": "incoai",
@@ -230,34 +310,24 @@
   "latestModel": "LongCat-2.0"
  },
  {
-  "key": "nvidia",
-  "name": "NVIDIA",
-  "monogram": "NV",
-  "color": "#d39845",
-  "blurb": "Models tracked from NVIDIA.",
+  "key": "perceptron",
+  "name": "Perceptron",
+  "monogram": "PE",
+  "color": "#45bcd3",
+  "blurb": "Models tracked from Perceptron.",
   "modelCount": 1,
-  "latestRelease": "2026-08-11",
-  "latestModel": "Nemotron 3.5 Lightning"
+  "latestRelease": "2026-05-12",
+  "latestModel": "Perceptron Mk1"
  },
  {
-  "key": "poolside",
-  "name": "Poolside",
-  "monogram": "PO",
-  "color": "#459dd3",
-  "blurb": "Models tracked from Poolside.",
+  "key": "rekaai",
+  "name": "Rekaai",
+  "monogram": "RE",
+  "color": "#d345a2",
+  "blurb": "Models tracked from Rekaai.",
   "modelCount": 1,
-  "latestRelease": "2026-07-21",
-  "latestModel": "Laguna S 2.1"
- },
- {
-  "key": "sakana",
-  "name": "Sakana",
-  "monogram": "SA",
-  "color": "#d37c45",
-  "blurb": "Models tracked from Sakana.",
-  "modelCount": 1,
-  "latestRelease": "2026-08-11",
-  "latestModel": "Sakana Namazu"
+  "latestRelease": "2026-03-20",
+  "latestModel": "Reka Edge"
  },
  {
   "key": "stealth",
@@ -268,6 +338,16 @@
   "modelCount": 1,
   "latestRelease": "2026-08-20",
   "latestModel": "Ox Alpha"
+ },
+ {
+  "key": "stepfun",
+  "name": "Stepfun",
+  "monogram": "ST",
+  "color": "#d3459d",
+  "blurb": "Models tracked from Stepfun.",
+  "modelCount": 1,
+  "latestRelease": "2026-05-28",
+  "latestModel": "Step 3.7 Flash"
  },
  {
   "key": "trl-internal-testing",
