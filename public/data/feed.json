@@ -4716,6 +4716,31 @@
   "benchmarkCount": 0
  },
  {
+  "id": "feed-or:mistralai/devstral-2512",
+  "modelId": "or:mistralai/devstral-2512",
+  "title": "Devstral 2 2512 listed",
+  "provider": "Mistral AI",
+  "providerKey": "mistral",
+  "released": "2025-12-09",
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "measuredScore": null,
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "floorReason": null,
+  "family": "devstral",
+  "tags": [
+   "Open Weights",
+   "Long Context"
+  ],
+  "summary": "Devstral 2 is a state-of-the-art open-source model by Mistral AI specializing in agentic coding. It is a 123B-parameter dense transformer model supporting a 256K context window. Devstral 2 supports exploring...",
+  "highlights": [],
+  "sourceUrl": "https://openrouter.ai/mistralai/devstral-2512",
+  "access": "Open",
+  "type": "General",
+  "benchmarkCount": 0
+ },
+ {
   "id": "feed-or:z-ai/glm-4.6v",
   "modelId": "or:z-ai/glm-4.6v",
   "title": "GLM 4.6V listed",
