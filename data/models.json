@@ -3149,6 +3149,66 @@
   }
  },
  {
+  "id": "or:deepseek/deepseek-r1-distill-llama-70b",
+  "name": "R1 Distill Llama 70B",
+  "provider": "DeepSeek",
+  "providerKey": "deepseek",
+  "family": "r1",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Open",
+  "released": "2025-01-23",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "8K tokens",
+  "contextTokens": 8192,
+  "pricing": "$0.800/$0.800 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "DeepSeek R1 Distill Llama 70B is a distilled large language model based on Llama-3.3-70B-Instruct, using outputs from DeepSeek R1. The model combines advanced distillation techniques to achieve high performance across...",
+  "sourceUrl": "https://openrouter.ai/deepseek/deepseek-r1-distill-llama-70b",
+  "benchmarks": {
+   "mmlu_pro": 84,
+   "gpqa_diamond": 71.5,
+   "livecode_bench": 65.9,
+   "swe_bench": 49.2,
+   "aime": 79.8,
+   "math500": 97.3
+  },
+  "benchmarkSources": {
+   "mmlu_pro": "vendor",
+   "gpqa_diamond": "vendor",
+   "livecode_bench": "vendor",
+   "swe_bench": "vendor",
+   "aime": "vendor",
+   "math500": "vendor"
+  },
+  "normalized": {
+   "swe_bench": 51.78947368421053,
+   "hle": null,
+   "gpqa_diamond": 75.26315789473685,
+   "livecode_bench": 70.10638297872342,
+   "aime": 79.8,
+   "mmlu_pro": 91.30434782608695,
+   "humaneval": null,
+   "math500": 100
+  },
+  "benchmarkCount": 6,
+  "measuredScore": 74.9,
+  "ultimateScore": 67.6,
+  "scoreStatus": "measured",
+  "imputationReason": null,
+  "ceilingReason": null,
+  "tags": [
+   "Open Weights"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
+  "tier": "general"
+ },
+ {
   "id": "qw36",
   "name": "Qwen3.6-Plus",
   "provider": "Alibaba/Qwen",
@@ -4786,6 +4846,68 @@
   ],
   "source": "openrouter",
   "fetchedAt": "2026-08-23T14:04:53.799Z",
+  "tier": "general"
+ },
+ {
+  "id": "or:deepseek/deepseek-chat",
+  "name": "DeepSeek V3",
+  "provider": "DeepSeek",
+  "providerKey": "deepseek",
+  "family": "deepseek",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Open",
+  "released": "2024-12-26",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "164K tokens",
+  "contextTokens": 163840,
+  "pricing": "$0.257/$1.03 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "DeepSeek-V3 is the latest model from the DeepSeek team, building upon the instruction following and coding abilities of the previous versions. Pre-trained on nearly 15 trillion tokens, the reported evaluations...",
+  "sourceUrl": "https://openrouter.ai/deepseek/deepseek-chat",
+  "benchmarks": {
+   "mmlu_pro": 64.4,
+   "humaneval": 65.2,
+   "livecode_bench": 19.4,
+   "gpqa_diamond": 59.1,
+   "swe_bench": 42,
+   "aime": 39.2,
+   "math500": 90.2
+  },
+  "benchmarkSources": {
+   "mmlu_pro": "vendor",
+   "humaneval": "vendor",
+   "livecode_bench": "vendor",
+   "gpqa_diamond": "vendor",
+   "swe_bench": "vendor",
+   "aime": "vendor",
+   "math500": "vendor"
+  },
+  "normalized": {
+   "swe_bench": 44.21052631578947,
+   "hle": null,
+   "gpqa_diamond": 62.21052631578947,
+   "livecode_bench": 20.638297872340424,
+   "aime": 39.2,
+   "mmlu_pro": 70,
+   "humaneval": 67.21649484536083,
+   "math500": 92.98969072164948
+  },
+  "benchmarkCount": 7,
+  "measuredScore": 54.5,
+  "ultimateScore": 48.5,
+  "scoreStatus": "measured",
+  "imputationReason": null,
+  "ceilingReason": null,
+  "tags": [
+   "Open Weights"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "deepseek-ai/DeepSeek-V3",
   "tier": "general"
  },
  {
@@ -6713,6 +6835,52 @@
   "tier": "general"
  },
  {
+  "id": "or:aion-labs/aion-rp-llama-3.1-8b",
+  "name": "Aion-RP 1.0 (8B)",
+  "provider": "Aion Labs",
+  "providerKey": "aion-labs",
+  "family": "aion",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Closed",
+  "released": "2025-02-04",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "33K tokens",
+  "contextTokens": 32768,
+  "pricing": "$0.800/$1.60 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "Aion-RP-Llama-3.1-8B ranks the highest in the character evaluation portion of the RPBench-Auto benchmark, a roleplaying-specific variant of Arena-Hard-Auto, where LLMs evaluate each other’s responses. It is a fine-tuned base model...",
+  "sourceUrl": "https://openrouter.ai/aion-labs/aion-rp-llama-3.1-8b",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Proprietary"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "",
+  "tier": "general"
+ },
+ {
   "id": "hf:Qwen/Qwen-AgentWorld-35B-A3B",
   "name": "Alibaba Qwen-AgentWorld-35B-A3B",
   "provider": "Alibaba",
@@ -6762,7 +6930,7 @@
    "Open Weights"
   ],
   "source": "demandsphere-mcp+huggingface",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general",
   "benchmarkSources": {}
  },
@@ -6816,7 +6984,7 @@
    "Open Weights"
   ],
   "source": "demandsphere-mcp+huggingface",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general",
   "benchmarkSources": {}
  },
@@ -6870,7 +7038,7 @@
    "Open Weights"
   ],
   "source": "demandsphere-mcp+huggingface",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general",
   "benchmarkSources": {}
  },
@@ -6924,7 +7092,7 @@
    "Open Weights"
   ],
   "source": "demandsphere-mcp+huggingface",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general",
   "benchmarkSources": {}
  },
@@ -7071,6 +7239,52 @@
   "tier": "general"
  },
  {
+  "id": "or:cohere/command-r7b-12-2024",
+  "name": "Command R7B (12-2024)",
+  "provider": "Cohere",
+  "providerKey": "cohere",
+  "family": "command",
+  "generation": null,
+  "country": null,
+  "type": "Reasoning",
+  "access": "Closed",
+  "released": "2024-12-14",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "128K tokens",
+  "contextTokens": 128000,
+  "pricing": "$0.037/$0.150 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "Command R7B (12-2024) is a small, fast update of the Command R+ model, delivered in December 2024. It excels at RAG, tool use, agents, and similar tasks requiring complex reasoning...",
+  "sourceUrl": "https://openrouter.ai/cohere/command-r7b-12-2024",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Proprietary"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "",
+  "tier": "general"
+ },
+ {
   "id": "or:thedrummer/cydonia-24b-v4.1",
   "name": "Cydonia 24B V4.1",
   "provider": "Thedrummer",
@@ -7112,7 +7326,7 @@
    "Open Weights"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "thedrummer/cydonia-24b-v4.1",
   "tier": "general"
  },
@@ -7166,7 +7380,7 @@
    "Open Weights"
   ],
   "source": "demandsphere-mcp+huggingface",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general",
   "benchmarkSources": {}
  },
@@ -7220,7 +7434,7 @@
    "Open Weights"
   ],
   "source": "demandsphere-mcp+huggingface",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general",
   "benchmarkSources": {}
  },
@@ -7472,7 +7686,7 @@
    "Multimodal"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "baidu/ERNIE-4.5-VL-424B-A47B-PT",
   "tier": "general"
  },
@@ -7906,7 +8120,7 @@
    "Open Weights"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "zai-org/GLM-4.5",
   "tier": "general"
  },
@@ -7953,7 +8167,7 @@
    "Multimodal"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "zai-org/GLM-4.5V",
   "tier": "general"
  },
@@ -8000,7 +8214,7 @@
    "Long Context"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "zai-org/GLM-4.6",
   "tier": "general"
  },
@@ -8047,7 +8261,7 @@
    "Multimodal"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "zai-org/GLM-4.6V",
   "tier": "general"
  },
@@ -8537,6 +8751,53 @@
   "tier": "general"
  },
  {
+  "id": "or:openai/gpt-4o-2024-11-20",
+  "name": "GPT-4o (2024-11-20)",
+  "provider": "OpenAI",
+  "providerKey": "openai",
+  "family": "gpt",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Closed",
+  "released": "2024-11-20",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "128K tokens",
+  "contextTokens": 128000,
+  "pricing": "$2.50/$10.00 per 1M tokens",
+  "multimodal": true,
+  "reasoning": false,
+  "description": "The 2024-11-20 version of GPT-4o offers a leveled-up creative writing ability with more natural, engaging, and tailored writing to improve relevance & readability. It’s also better at working with uploaded...",
+  "sourceUrl": "https://openrouter.ai/openai/gpt-4o-2024-11-20",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Proprietary",
+   "Multimodal"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "",
+  "tier": "general"
+ },
+ {
   "id": "or:openai/gpt-oss-120b",
   "name": "gpt-oss-120b",
   "provider": "OpenAI",
@@ -8578,7 +8839,7 @@
    "Open Weights"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "openai/gpt-oss-120b",
   "tier": "general"
  },
@@ -8624,7 +8885,7 @@
    "Open Weights"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "openai/gpt-oss-20b",
   "tier": "general"
  },
@@ -8670,7 +8931,7 @@
    "Open Weights"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "openai/gpt-oss-safeguard-20b",
   "tier": "general"
  },
@@ -8771,7 +9032,7 @@
    "Open Weights"
   ],
   "source": "huggingface-hub",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general"
  },
  {
@@ -9237,7 +9498,7 @@
    "Open Weights"
   ],
   "source": "huggingface-hub",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general"
  },
  {
@@ -9282,7 +9543,7 @@
    "Open Weights"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "moonshotai/Kimi-K2-Instruct",
   "tier": "general"
  },
@@ -9329,7 +9590,7 @@
    "Long Context"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "moonshotai/Kimi-K2-Instruct-0905",
   "tier": "general"
  },
@@ -9621,6 +9882,98 @@
   "tier": "general"
  },
  {
+  "id": "or:sao10k/l3.1-euryale-70b",
+  "name": "Llama 3.1 Euryale 70B v2.2",
+  "provider": "Sao10k",
+  "providerKey": "sao10k",
+  "family": "llama",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Open",
+  "released": "2024-08-28",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "131K tokens",
+  "contextTokens": 131072,
+  "pricing": "$0.850/$0.850 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "Euryale L3.1 70B v2.2 is a model focused on creative roleplay from Sao10k. It is the successor of Euryale L3 70B v2.1.",
+  "sourceUrl": "https://openrouter.ai/sao10k/l3.1-euryale-70b",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Open Weights"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "Sao10K/L3.1-70B-Euryale-v2.2",
+  "tier": "general"
+ },
+ {
+  "id": "or:sao10k/l3.3-euryale-70b",
+  "name": "Llama 3.3 Euryale 70B",
+  "provider": "Sao10k",
+  "providerKey": "sao10k",
+  "family": "llama",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Open",
+  "released": "2024-12-18",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "131K tokens",
+  "contextTokens": 131072,
+  "pricing": "$0.650/$0.750 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "Euryale L3.3 70B is a model focused on creative roleplay from Sao10k. It is the successor of Euryale L3 70B v2.2.",
+  "sourceUrl": "https://openrouter.ai/sao10k/l3.3-euryale-70b",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Open Weights"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "Sao10K/L3.3-70B-Euryale-v2.3",
+  "tier": "general"
+ },
+ {
   "id": "or:meta-llama/llama-guard-4-12b",
   "name": "Llama Guard 4 12B",
   "provider": "Meta",
@@ -9814,6 +10167,52 @@
   ],
   "source": "openrouter",
   "fetchedAt": "2026-08-23T14:12:41.155Z",
+  "tier": "general"
+ },
+ {
+  "id": "or:anthracite-org/magnum-v4-72b",
+  "name": "Magnum v4 72B",
+  "provider": "Anthracite Org",
+  "providerKey": "anthracite-org",
+  "family": "magnum",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Open",
+  "released": "2024-10-22",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "33K tokens",
+  "contextTokens": 32768,
+  "pricing": "$3.00/$5.00 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "This is a series of models designed to replicate the prose quality of the Claude 3 models, specifically Sonnet(https://openrouter.ai/anthropic/claude-3.5-sonnet) and Opus(https://openrouter.ai/anthropic/claude-3-opus). The model is fine-tuned on top of Qwen2.5 72B.",
+  "sourceUrl": "https://openrouter.ai/anthracite-org/magnum-v4-72b",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Open Weights"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "anthracite-org/magnum-v4-72b",
   "tier": "general"
  },
  {
@@ -10437,6 +10836,54 @@
   "benchmarkSources": {}
  },
  {
+  "id": "or:minimax/minimax-01",
+  "name": "MiniMax-01",
+  "provider": "MiniMax",
+  "providerKey": "minimax",
+  "family": "minimax",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Open",
+  "released": "2025-01-15",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "1000K tokens",
+  "contextTokens": 1000192,
+  "pricing": "$0.200/$1.10 per 1M tokens",
+  "multimodal": true,
+  "reasoning": false,
+  "description": "MiniMax-01 is a combines MiniMax-Text-01 for text generation and MiniMax-VL-01 for image understanding. It has 456 billion parameters, with 45.9 billion parameters activated per inference, and can handle a context...",
+  "sourceUrl": "https://openrouter.ai/minimax/minimax-01",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Open Weights",
+   "Multimodal",
+   "Long Context"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "MiniMaxAI/MiniMax-Text-01",
+  "tier": "general"
+ },
+ {
   "id": "or:mistralai/ministral-3b-2512",
   "name": "Ministral 3 3B 2512",
   "provider": "Mistral AI",
@@ -10479,7 +10926,7 @@
    "Multimodal"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "mistralai/Ministral-3-3B-Instruct-2512",
   "tier": "general"
  },
@@ -10527,8 +10974,100 @@
    "Long Context"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "mistralai/Ministral-3-8B-Instruct-2512",
+  "tier": "general"
+ },
+ {
+  "id": "or:mistralai/ministral-8b",
+  "name": "Ministral 8B",
+  "provider": "Mistral AI",
+  "providerKey": "mistral",
+  "family": "ministral",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Closed",
+  "released": "2024-10-17",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "128K tokens",
+  "contextTokens": 128000,
+  "pricing": "$0.110/$0.110 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "Ministral 8B is an 8B parameter model featuring a unique interleaved sliding-window attention pattern for faster, memory-efficient inference. Designed for edge use cases, it supports up to 128k context length...",
+  "sourceUrl": "https://openrouter.ai/mistralai/ministral-8b",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Proprietary"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": null,
+  "tier": "general"
+ },
+ {
+  "id": "or:mistralai/mistral-large-2407",
+  "name": "Mistral Large 2407",
+  "provider": "Mistral AI",
+  "providerKey": "mistral",
+  "family": "mistral",
+  "generation": null,
+  "country": null,
+  "type": "Reasoning",
+  "access": "Closed",
+  "released": "2024-11-19",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "131K tokens",
+  "contextTokens": 131072,
+  "pricing": "$2.00/$6.00 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "This is Mistral AI's flagship model, Mistral Large 2 (version mistral-large-2407). It's a proprietary weights-available model and excels at reasoning, code, JSON, chat, and more. Read the launch announcement here....",
+  "sourceUrl": "https://openrouter.ai/mistralai/mistral-large-2407",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Proprietary"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "",
   "tier": "general"
  },
  {
@@ -10685,7 +11224,7 @@
    "Open Weights"
   ],
   "source": "demandsphere-mcp+huggingface",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general",
   "benchmarkSources": {}
  },
@@ -10841,7 +11380,7 @@
    "Open Weights"
   ],
   "source": "demandsphere-mcp+huggingface",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general",
   "benchmarkSources": {}
  },
@@ -10895,7 +11434,7 @@
    "Open Weights"
   ],
   "source": "demandsphere-mcp+huggingface",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general",
   "benchmarkSources": {}
  },
@@ -10949,7 +11488,7 @@
    "Open Weights"
   ],
   "source": "demandsphere-mcp+huggingface",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general",
   "benchmarkSources": {}
  },
@@ -11479,6 +12018,102 @@
   "tier": "general"
  },
  {
+  "id": "or:amazon/nova-pro-v1",
+  "name": "Nova Pro 1.0",
+  "provider": "Amazon",
+  "providerKey": "amazon",
+  "family": "nova",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Closed",
+  "released": "2024-12-05",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "300K tokens",
+  "contextTokens": 300000,
+  "pricing": "$0.800/$3.20 per 1M tokens",
+  "multimodal": true,
+  "reasoning": false,
+  "description": "Amazon Nova Pro 1.0 is a capable multimodal model from Amazon focused on providing a combination of accuracy, speed, and cost for a wide range of tasks. As of December...",
+  "sourceUrl": "https://openrouter.ai/amazon/nova-pro-v1",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Proprietary",
+   "Multimodal",
+   "Long Context"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "",
+  "tier": "general"
+ },
+ {
+  "id": "or:openai/o1",
+  "name": "o1",
+  "provider": "OpenAI",
+  "providerKey": "openai",
+  "family": "o1",
+  "generation": null,
+  "country": null,
+  "type": "Reasoning",
+  "access": "Closed",
+  "released": "2024-12-17",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "200K tokens",
+  "contextTokens": 200000,
+  "pricing": "$15.00/$60.00 per 1M tokens",
+  "multimodal": true,
+  "reasoning": false,
+  "description": "The latest and strongest model family from OpenAI, o1 is designed to spend more time thinking before responding. The o1 model series is trained with large-scale reinforcement learning to reason...",
+  "sourceUrl": "https://openrouter.ai/openai/o1",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Proprietary",
+   "Multimodal",
+   "Long Context"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "",
+  "tier": "general"
+ },
+ {
   "id": "or:openai/o1-pro",
   "name": "o1-pro",
   "provider": "OpenAI",
@@ -11616,7 +12251,7 @@
    "Open Weights"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "allenai/Olmo-3-32B-Think",
   "tier": "general"
  },
@@ -11709,7 +12344,7 @@
    "Open Weights"
   ],
   "source": "huggingface-hub",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general"
  },
  {
@@ -11900,6 +12535,192 @@
   "tier": "general"
  },
  {
+  "id": "or:qwen/qwen-plus",
+  "name": "Qwen-Plus",
+  "provider": "Alibaba / Qwen",
+  "providerKey": "alibaba",
+  "family": "qwen",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Closed",
+  "released": "2025-02-01",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "1000K tokens",
+  "contextTokens": 1000000,
+  "pricing": "$0.260/$0.780 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "Qwen-Plus, based on the Qwen2.5 foundation model, is a 131K context model with a balanced performance, speed, and cost combination.",
+  "sourceUrl": "https://openrouter.ai/qwen/qwen-plus",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Proprietary",
+   "Long Context"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "",
+  "tier": "general"
+ },
+ {
+  "id": "or:qwen/qwen-2.5-72b-instruct",
+  "name": "Qwen2.5 72B Instruct",
+  "provider": "Alibaba / Qwen",
+  "providerKey": "alibaba",
+  "family": "qwen2.5",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Open",
+  "released": "2024-09-19",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "33K tokens",
+  "contextTokens": 32768,
+  "pricing": "$0.360/$0.400 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "Qwen2.5 72B is the latest series of Qwen large language models. Qwen2.5 brings the following improvements upon Qwen2: - Significantly more knowledge and has greatly improved capabilities in coding and...",
+  "sourceUrl": "https://openrouter.ai/qwen/qwen-2.5-72b-instruct",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Open Weights"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "Qwen/Qwen2.5-72B-Instruct",
+  "tier": "general"
+ },
+ {
+  "id": "or:qwen/qwen-2.5-coder-32b-instruct",
+  "name": "Qwen2.5 Coder 32B Instruct",
+  "provider": "Alibaba / Qwen",
+  "providerKey": "alibaba",
+  "family": "qwen2.5",
+  "generation": null,
+  "country": null,
+  "type": "Reasoning",
+  "access": "Open",
+  "released": "2024-11-11",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "33K tokens",
+  "contextTokens": 32768,
+  "pricing": "$0.660/$1.00 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "Qwen2.5-Coder is the latest series of Code-Specific Qwen large language models (formerly known as CodeQwen). Qwen2.5-Coder brings the following improvements upon CodeQwen1.5: - Significantly improvements in code generation, code reasoning...",
+  "sourceUrl": "https://openrouter.ai/qwen/qwen-2.5-coder-32b-instruct",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Open Weights"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "Qwen/Qwen2.5-Coder-32B-Instruct",
+  "tier": "general"
+ },
+ {
+  "id": "or:qwen/qwen2.5-vl-72b-instruct",
+  "name": "Qwen2.5 VL 72B Instruct",
+  "provider": "Alibaba / Qwen",
+  "providerKey": "alibaba",
+  "family": "qwen2.5",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Open",
+  "released": "2025-02-01",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "128K tokens",
+  "contextTokens": 128000,
+  "pricing": "$0.800/$1.00 per 1M tokens",
+  "multimodal": true,
+  "reasoning": false,
+  "description": "Qwen2.5-VL is proficient in recognizing common objects such as flowers, birds, fish, and insects. It is also highly capable of analyzing texts, charts, icons, graphics, and layouts within images.",
+  "sourceUrl": "https://openrouter.ai/qwen/qwen2.5-vl-72b-instruct",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Open Weights",
+   "Multimodal"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "Qwen/Qwen2.5-VL-72B-Instruct",
+  "tier": "general"
+ },
+ {
   "id": "hf:Qwen/Qwen2.5-1.5B-Instruct",
   "name": "Qwen2.5-1.5B-Instruct",
   "provider": "Alibaba / Qwen",
@@ -11941,7 +12762,7 @@
    "Open Weights"
   ],
   "source": "huggingface-hub",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general"
  },
  {
@@ -11986,7 +12807,7 @@
    "Open Weights"
   ],
   "source": "huggingface-hub",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general"
  },
  {
@@ -12031,7 +12852,7 @@
    "Open Weights"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "Qwen/Qwen3-14B",
   "tier": "general"
  },
@@ -12077,7 +12898,7 @@
    "Open Weights"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "Qwen/Qwen3-30B-A3B",
   "tier": "general"
  },
@@ -12123,7 +12944,7 @@
    "Open Weights"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "Qwen/Qwen3-32B",
   "tier": "general"
  },
@@ -12170,7 +12991,7 @@
    "Long Context"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
   "tier": "general"
  },
@@ -12217,7 +13038,7 @@
    "Long Context"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "Qwen/Qwen3-Coder-480B-A35B-Instruct",
   "tier": "general"
  },
@@ -12311,7 +13132,7 @@
    "Long Context"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "Qwen/Qwen3-Coder-Next",
   "tier": "general"
  },
@@ -12406,7 +13227,7 @@
    "Long Context"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "Qwen/Qwen3-VL-235B-A22B-Instruct",
   "tier": "general"
  },
@@ -12453,7 +13274,7 @@
    "Multimodal"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "Qwen/Qwen3-VL-235B-A22B-Thinking",
   "tier": "general"
  },
@@ -12501,7 +13322,7 @@
    "Long Context"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "Qwen/Qwen3-VL-30B-A3B-Instruct",
   "tier": "general"
  },
@@ -12549,7 +13370,7 @@
    "Long Context"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "Qwen/Qwen3-VL-30B-A3B-Thinking",
   "tier": "general"
  },
@@ -12596,7 +13417,7 @@
    "Multimodal"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "Qwen/Qwen3-VL-32B-Instruct",
   "tier": "general"
  },
@@ -12644,7 +13465,7 @@
    "Long Context"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "Qwen/Qwen3-VL-8B-Instruct",
   "tier": "general"
  },
@@ -12691,7 +13512,7 @@
    "Multimodal"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "Qwen/Qwen3-VL-8B-Thinking",
   "tier": "general"
  },
@@ -12737,7 +13558,7 @@
    "Open Weights"
   ],
   "source": "huggingface-hub",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general"
  },
  {
@@ -12782,7 +13603,7 @@
    "Open Weights"
   ],
   "source": "huggingface-hub",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general"
  },
  {
@@ -12924,7 +13745,7 @@
    "Long Context"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "Qwen/Qwen3.5-122B-A10B",
   "tier": "general"
  },
@@ -12972,7 +13793,7 @@
    "Long Context"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "Qwen/Qwen3.5-27B",
   "tier": "general"
  },
@@ -13020,7 +13841,7 @@
    "Long Context"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "Qwen/Qwen3.5-35B-A3B",
   "tier": "general"
  },
@@ -13348,7 +14169,7 @@
    "Open Weights"
   ],
   "source": "huggingface-hub",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general"
  },
  {
@@ -13393,7 +14214,7 @@
    "Open Weights"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "RekaAI/reka-flash-3",
   "tier": "general"
  },
@@ -13535,6 +14356,52 @@
   ],
   "source": "openrouter",
   "fetchedAt": "2026-08-23T14:12:41.155Z",
+  "tier": "general"
+ },
+ {
+  "id": "or:thedrummer/rocinante-12b",
+  "name": "Rocinante 12B",
+  "provider": "Thedrummer",
+  "providerKey": "thedrummer",
+  "family": "rocinante",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Open",
+  "released": "2024-09-30",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "66K tokens",
+  "contextTokens": 65536,
+  "pricing": "$0.250/$0.500 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "Rocinante 12B is designed for engaging storytelling and rich prose. Early testers have reported: - Expanded vocabulary with unique and expressive word choices - Enhanced creativity for vivid narratives -...",
+  "sourceUrl": "https://openrouter.ai/thedrummer/rocinante-12b",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Open Weights"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "TheDrummer/Rocinante-12B-v1.1",
   "tier": "general"
  },
  {
@@ -13862,7 +14729,7 @@
    "Open Weights"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "TheDrummer/Skyfall-36B-v2",
   "tier": "general"
  },
@@ -13956,6 +14823,53 @@
   ],
   "source": "openrouter",
   "fetchedAt": "2026-08-23T14:04:53.799Z",
+  "tier": "general"
+ },
+ {
+  "id": "or:perplexity/sonar",
+  "name": "Sonar",
+  "provider": "Perplexity",
+  "providerKey": "perplexity",
+  "family": "sonar",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Closed",
+  "released": "2025-01-27",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "127K tokens",
+  "contextTokens": 127072,
+  "pricing": "$1.00/$1.00 per 1M tokens",
+  "multimodal": true,
+  "reasoning": false,
+  "description": "Sonar is lightweight, affordable, fast, and simple to use — now featuring citations and the ability to customize sources. It is designed for companies seeking to integrate lightweight question-and-answer features...",
+  "sourceUrl": "https://openrouter.ai/perplexity/sonar",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Proprietary",
+   "Multimodal"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "",
   "tier": "general"
  },
  {
@@ -14237,7 +15151,7 @@
    "Multimodal"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "ByteDance-Seed/UI-TARS-1.5-7B",
   "tier": "general"
  },
@@ -14283,8 +15197,55 @@
    "Open Weights"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "cognitivecomputations/Dolphin-Mistral-24B-Venice-Edition",
+  "tier": "general"
+ },
+ {
+  "id": "or:thedrummer/unslopnemo-12b",
+  "name": "UnslopNemo 12B",
+  "provider": "Thedrummer",
+  "providerKey": "thedrummer",
+  "family": "unslopnemo",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Open",
+  "released": "2024-11-08",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "1024K tokens",
+  "contextTokens": 1024000,
+  "pricing": "$0.400/$0.400 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "UnslopNemo v4.1 is the latest addition from the creator of Rocinante, designed for adventure writing and role-play scenarios.",
+  "sourceUrl": "https://openrouter.ai/thedrummer/unslopnemo-12b",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "tags": [
+   "Open Weights",
+   "Long Context"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "TheDrummer/UnslopNemo-12B-v4.1",
   "tier": "general"
  },
  {
@@ -14383,7 +15344,7 @@
    "Open Weights"
   ],
   "source": "demandsphere-mcp+huggingface",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general",
   "benchmarkSources": {}
  },
@@ -14437,7 +15398,7 @@
    "Open Weights"
   ],
   "source": "demandsphere-mcp+huggingface",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "general",
   "benchmarkSources": {}
  },
@@ -15164,7 +16125,7 @@
    "Open Weights"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "ibm-granite/granite-4.0-h-micro",
   "tier": "lightweight"
  },
@@ -15323,7 +16284,7 @@
    "Open Weights"
   ],
   "source": "huggingface-hub",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "lightweight"
  },
  {
@@ -15376,9 +16337,55 @@
    "Open Weights"
   ],
   "source": "demandsphere-mcp+huggingface",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "lightweight",
   "benchmarkSources": {}
+ },
+ {
+  "id": "or:mistralai/mistral-small-24b-instruct-2501",
+  "name": "Mistral Small 3",
+  "provider": "Mistral AI",
+  "providerKey": "mistral",
+  "family": "mistral",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Open",
+  "released": "2025-01-30",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "33K tokens",
+  "contextTokens": 32768,
+  "pricing": "$0.050/$0.080 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "Mistral Small 3 is a 24B-parameter language model optimized for low-latency performance across common AI tasks. Released under the Apache 2.0 license, it features both pre-trained and instruction-tuned versions designed...",
+  "sourceUrl": "https://openrouter.ai/mistralai/mistral-small-24b-instruct-2501",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": "Intelligence Ceiling: lightweight/utility model hard-capped at the lowest established flagship score (77.2). Lifted only with verified non-imputed SWE-bench ≥ 70 AND HLE ≥ 40.",
+  "tags": [
+   "Open Weights"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "mistralai/Mistral-Small-24B-Instruct-2501",
+  "tier": "lightweight"
  },
  {
   "id": "ms31",
@@ -15478,7 +16485,7 @@
    "Multimodal"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
   "tier": "lightweight"
  },
@@ -15525,7 +16532,7 @@
    "Multimodal"
   ],
   "source": "openrouter",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
   "tier": "lightweight"
  },
@@ -15863,6 +16870,147 @@
   ],
   "source": "openrouter",
   "fetchedAt": "2026-08-23T15:01:36.036Z",
+  "hfRef": "",
+  "tier": "lightweight"
+ },
+ {
+  "id": "or:amazon/nova-lite-v1",
+  "name": "Nova Lite 1.0",
+  "provider": "Amazon",
+  "providerKey": "amazon",
+  "family": "nova",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Closed",
+  "released": "2024-12-05",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "300K tokens",
+  "contextTokens": 300000,
+  "pricing": "$0.060/$0.240 per 1M tokens",
+  "multimodal": true,
+  "reasoning": false,
+  "description": "Amazon Nova Lite 1.0 is a very low-cost multimodal model from Amazon that focused on fast processing of image, video, and text inputs to generate text output. Amazon Nova Lite...",
+  "sourceUrl": "https://openrouter.ai/amazon/nova-lite-v1",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": "Intelligence Ceiling: lightweight/utility model hard-capped at the lowest established flagship score (77.2). Lifted only with verified non-imputed SWE-bench ≥ 70 AND HLE ≥ 40.",
+  "tags": [
+   "Proprietary",
+   "Multimodal",
+   "Long Context"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "",
+  "tier": "lightweight"
+ },
+ {
+  "id": "or:amazon/nova-micro-v1",
+  "name": "Nova Micro 1.0",
+  "provider": "Amazon",
+  "providerKey": "amazon",
+  "family": "nova",
+  "generation": null,
+  "country": null,
+  "type": "General",
+  "access": "Closed",
+  "released": "2024-12-05",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "128K tokens",
+  "contextTokens": 128000,
+  "pricing": "$0.035/$0.140 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "Amazon Nova Micro 1.0 is a text-only model that delivers the lowest latency responses in the Amazon Nova family of models at a very low cost. With a context length...",
+  "sourceUrl": "https://openrouter.ai/amazon/nova-micro-v1",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": "Intelligence Ceiling: lightweight/utility model hard-capped at the lowest established flagship score (77.2). Lifted only with verified non-imputed SWE-bench ≥ 70 AND HLE ≥ 40.",
+  "tags": [
+   "Proprietary"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
+  "hfRef": "",
+  "tier": "lightweight"
+ },
+ {
+  "id": "or:openai/o3-mini",
+  "name": "o3 Mini",
+  "provider": "OpenAI",
+  "providerKey": "openai",
+  "family": "o3",
+  "generation": null,
+  "country": null,
+  "type": "Reasoning",
+  "access": "Closed",
+  "released": "2025-01-31",
+  "cutoff": null,
+  "parameters": null,
+  "contextWindow": "200K tokens",
+  "contextTokens": 200000,
+  "pricing": "$1.10/$4.40 per 1M tokens",
+  "multimodal": false,
+  "reasoning": false,
+  "description": "OpenAI o3-mini is a cost-efficient language model optimized for STEM reasoning tasks, particularly excelling in science, mathematics, and coding. This model supports the reasoningeffort parameter, which can be set to...",
+  "sourceUrl": "https://openrouter.ai/openai/o3-mini",
+  "benchmarks": {},
+  "benchmarkSources": {},
+  "normalized": {
+   "swe_bench": null,
+   "hle": null,
+   "gpqa_diamond": null,
+   "livecode_bench": null,
+   "aime": null,
+   "mmlu_pro": null,
+   "humaneval": null,
+   "math500": null
+  },
+  "benchmarkCount": 0,
+  "measuredScore": null,
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": "Intelligence Ceiling: lightweight/utility model hard-capped at the lowest established flagship score (77.2). Lifted only with verified non-imputed SWE-bench ≥ 70 AND HLE ≥ 40.",
+  "tags": [
+   "Proprietary",
+   "Long Context"
+  ],
+  "source": "openrouter",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "hfRef": "",
   "tier": "lightweight"
  },
@@ -16248,7 +17396,7 @@
    "Open Weights"
   ],
   "source": "huggingface-hub",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "lightweight"
  },
  {
@@ -16293,7 +17441,7 @@
    "Open Weights"
   ],
   "source": "huggingface-hub",
-  "fetchedAt": "2026-08-23T18:12:52.815Z",
+  "fetchedAt": "2026-08-24T00:36:25.561Z",
   "tier": "lightweight"
  }
 ]

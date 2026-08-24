@@ -5,7 +5,7 @@
   "monogram": "Q",
   "color": "#ff6a00",
   "blurb": "Alibaba's Qwen open-weight model series.",
-  "modelCount": 51,
+  "modelCount": 55,
   "latestRelease": "2026-08-14",
   "latestModel": "Qwen3.8 27B"
  },
@@ -15,7 +15,7 @@
   "monogram": "AI",
   "color": "#10a37f",
   "blurb": "Maker of the GPT and o-series frontier models.",
-  "modelCount": 44,
+  "modelCount": 47,
   "latestRelease": "2026-07-09",
   "latestModel": "GPT-5.6 Luna"
  },
@@ -35,9 +35,19 @@
   "monogram": "M",
   "color": "#ff7000",
   "blurb": "European lab behind the Mistral and Mixtral families.",
-  "modelCount": 19,
+  "modelCount": 22,
   "latestRelease": "2026-07-15",
   "latestModel": "Mistral Leanstral-1.5-119B-A6B"
+ },
+ {
+  "key": "deepseek",
+  "name": "DeepSeek",
+  "monogram": "D",
+  "color": "#4d6bfe",
+  "blurb": "Chinese lab behind DeepSeek V/R reasoning models.",
+  "modelCount": 19,
+  "latestRelease": "2026-08-21",
+  "latestModel": "DeepSeek V4 Flash Vision Exp"
  },
  {
   "key": "anthropic",
@@ -48,16 +58,6 @@
   "modelCount": 18,
   "latestRelease": "2026-07-24",
   "latestModel": "Claude Opus 5 (Fast)"
- },
- {
-  "key": "deepseek",
-  "name": "DeepSeek",
-  "monogram": "D",
-  "color": "#4d6bfe",
-  "blurb": "Chinese lab behind DeepSeek V/R reasoning models.",
-  "modelCount": 17,
-  "latestRelease": "2026-08-21",
-  "latestModel": "DeepSeek V4 Flash Vision Exp"
  },
  {
   "key": "meta",
@@ -115,9 +115,19 @@
   "monogram": "X",
   "color": "#e64980",
   "blurb": "Chinese lab behind the MiniMax-01 and M-series models.",
-  "modelCount": 7,
+  "modelCount": 8,
   "latestRelease": "2026-06-01",
   "latestModel": "MiniMax M3"
+ },
+ {
+  "key": "amazon",
+  "name": "Amazon",
+  "monogram": "AZ",
+  "color": "#ff9900",
+  "blurb": "Amazon — Nova foundation models.",
+  "modelCount": 7,
+  "latestRelease": "2025-12-02",
+  "latestModel": "Nova 2 Pro Preview"
  },
  {
   "key": "inclusionai",
@@ -130,6 +140,16 @@
   "latestModel": "Ling-3.0-tiny"
  },
  {
+  "key": "perplexity",
+  "name": "Perplexity",
+  "monogram": "PE",
+  "color": "#8cd345",
+  "blurb": "Models tracked from Perplexity.",
+  "modelCount": 5,
+  "latestRelease": "2025-10-30",
+  "latestModel": "Sonar Pro Search"
+ },
+ {
   "key": "tencent",
   "name": "Tencent",
   "monogram": "T",
@@ -140,14 +160,14 @@
   "latestModel": "Hy-MT2-1.8B"
  },
  {
-  "key": "amazon",
-  "name": "Amazon",
-  "monogram": "AZ",
-  "color": "#ff9900",
-  "blurb": "Amazon — Nova foundation models.",
+  "key": "aion-labs",
+  "name": "Aion Labs",
+  "monogram": "AI",
+  "color": "#45add3",
+  "blurb": "Models tracked from Aion Labs.",
   "modelCount": 4,
-  "latestRelease": "2025-12-02",
-  "latestModel": "Nova 2 Pro Preview"
+  "latestRelease": "2026-07-07",
+  "latestModel": "Aion-3.0"
  },
  {
   "key": "kwaipilot",
@@ -180,24 +200,24 @@
   "latestModel": "Nemotron 3.5 Lightning"
  },
  {
-  "key": "perplexity",
-  "name": "Perplexity",
-  "monogram": "PE",
-  "color": "#8cd345",
-  "blurb": "Models tracked from Perplexity.",
+  "key": "thedrummer",
+  "name": "Thedrummer",
+  "monogram": "TH",
+  "color": "#d39845",
+  "blurb": "Models tracked from Thedrummer.",
   "modelCount": 4,
-  "latestRelease": "2025-10-30",
-  "latestModel": "Sonar Pro Search"
+  "latestRelease": "2025-09-27",
+  "latestModel": "Cydonia 24B V4.1"
  },
  {
-  "key": "aion-labs",
-  "name": "Aion Labs",
-  "monogram": "AI",
-  "color": "#45add3",
-  "blurb": "Models tracked from Aion Labs.",
+  "key": "cohere",
+  "name": "Cohere",
+  "monogram": "C",
+  "color": "#39594d",
+  "blurb": "Enterprise-focused lab behind the Command models.",
   "modelCount": 3,
-  "latestRelease": "2026-07-07",
-  "latestModel": "Aion-3.0"
+  "latestRelease": "2026-05-20",
+  "latestModel": "Command A+"
  },
  {
   "key": "arcee-ai",
@@ -208,16 +228,6 @@
   "modelCount": 2,
   "latestRelease": "2026-04-01",
   "latestModel": "Trinity Large Thinking"
- },
- {
-  "key": "cohere",
-  "name": "Cohere",
-  "monogram": "C",
-  "color": "#39594d",
-  "blurb": "Enterprise-focused lab behind the Command models.",
-  "modelCount": 2,
-  "latestRelease": "2026-05-20",
-  "latestModel": "Command A+"
  },
  {
   "key": "ibm-granite",
@@ -300,6 +310,16 @@
   "latestModel": "Sakana Namazu"
  },
  {
+  "key": "sao10k",
+  "name": "Sao10k",
+  "monogram": "SA",
+  "color": "#4564d3",
+  "blurb": "Models tracked from Sao10k.",
+  "modelCount": 2,
+  "latestRelease": "2024-12-18",
+  "latestModel": "Llama 3.3 Euryale 70B"
+ },
+ {
   "key": "stepfun",
   "name": "Stepfun",
   "monogram": "ST",
@@ -308,16 +328,6 @@
   "modelCount": 2,
   "latestRelease": "2026-05-28",
   "latestModel": "Step 3.7 Flash"
- },
- {
-  "key": "thedrummer",
-  "name": "Thedrummer",
-  "monogram": "TH",
-  "color": "#d39845",
-  "blurb": "Models tracked from Thedrummer.",
-  "modelCount": 2,
-  "latestRelease": "2025-09-27",
-  "latestModel": "Cydonia 24B V4.1"
  },
  {
   "key": "thinkingmachines",
@@ -358,6 +368,16 @@
   "modelCount": 1,
   "latestRelease": "2025-11-21",
   "latestModel": "Olmo 3 32B Think"
+ },
+ {
+  "key": "anthracite-org",
+  "name": "Anthracite Org",
+  "monogram": "AN",
+  "color": "#7945d3",
+  "blurb": "Models tracked from Anthracite Org.",
+  "modelCount": 1,
+  "latestRelease": "2024-10-22",
+  "latestModel": "Magnum v4 72B"
  },
  {
   "key": "baidu",
