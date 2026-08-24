@@ -270,6 +270,16 @@
   "latestModel": "Hermes 4 405B"
  },
  {
+  "key": "ornith-ai",
+  "name": "Ornith Ai",
+  "monogram": "OR",
+  "color": "#45c3d3",
+  "blurb": "Models tracked from Ornith Ai.",
+  "modelCount": 2,
+  "latestRelease": "2026-08-18",
+  "latestModel": "Ornith-1.5-35B-A3B"
+ },
+ {
   "key": "poolside",
   "name": "Poolside",
   "monogram": "PO",
