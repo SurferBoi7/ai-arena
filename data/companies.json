@@ -35,7 +35,7 @@
   "monogram": "M",
   "color": "#ff7000",
   "blurb": "European lab behind the Mistral and Mixtral families.",
-  "modelCount": 22,
+  "modelCount": 23,
   "latestRelease": "2026-07-15",
   "latestModel": "Mistral Leanstral-1.5-119B-A6B"
  },
