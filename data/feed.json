@@ -856,6 +856,30 @@
   "benchmarkCount": 0
  },
  {
+  "id": "feed-hf:Nanbeige/Nanbeige4.2-3B",
+  "modelId": "hf:Nanbeige/Nanbeige4.2-3B",
+  "title": "Nanbeige4.2-3B listed",
+  "provider": "Nanbeige",
+  "providerKey": "nanbeige",
+  "released": "2026-07-21",
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "measuredScore": null,
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "floorReason": null,
+  "family": "nanbeige4",
+  "tags": [
+   "Open Weights"
+  ],
+  "summary": "Nanbeige4.2-3B is a compact agentic model built on Nanbeige4.2-3B-Base, designed to combine strong agentic behavior with broad reasoning and alignment capabilities. Its Looped Transformer architecture reuses the transformer layers to increase model capacity without adding parameters. With only 3B non-embedding parameters, the model delivers solid performance on general-agent and code-agent tasks. During supervised fine-tuning (SFT), we expand the diversity of training environments through real-world environment integrations and large-scale environment synthesis. We further diversify task types, task assets, and the agentic scaffolds used for each task. To ensure training data quality, we apply filtering at both the trajectory and turn levels, combining test-case-based validation with rubric-based assessment. During reinforcement learning (RL), we combine outcome and process rewards to im",
+  "highlights": [],
+  "sourceUrl": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B",
+  "access": "Open",
+  "type": "General",
+  "benchmarkCount": 0
+ },
+ {
   "id": "feed-or:google/gemini-3.5-flash-lite",
   "modelId": "or:google/gemini-3.5-flash-lite",
   "title": "Gemini 3.5 Flash Lite listed",
