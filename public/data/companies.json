@@ -60,6 +60,16 @@
   "latestModel": "Claude Opus 5 (Fast)"
  },
  {
+  "key": "zhipu",
+  "name": "Zhipu AI",
+  "monogram": "Z",
+  "color": "#3b5bdb",
+  "blurb": "Chinese lab behind the GLM model family.",
+  "modelCount": 18,
+  "latestRelease": "2026-08-26",
+  "latestModel": "GLM 5.3 Flash"
+ },
+ {
   "key": "meta",
   "name": "Meta",
   "monogram": "M",
@@ -68,16 +78,6 @@
   "modelCount": 17,
   "latestRelease": "2026-08-21",
   "latestModel": "Muse Spark 1.2 Contributor"
- },
- {
-  "key": "zhipu",
-  "name": "Zhipu AI",
-  "monogram": "Z",
-  "color": "#3b5bdb",
-  "blurb": "Chinese lab behind the GLM model family.",
-  "modelCount": 17,
-  "latestRelease": "2026-08-19",
-  "latestModel": "GLM Latest"
  },
  {
   "key": "bytedance",

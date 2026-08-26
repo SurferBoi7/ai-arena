@@ -1,5 +1,31 @@
 [
  {
+  "id": "feed-or:z-ai/glm-5.3-flash",
+  "modelId": "or:z-ai/glm-5.3-flash",
+  "title": "GLM 5.3 Flash listed",
+  "provider": "Zhipu AI",
+  "providerKey": "zhipu",
+  "released": "2026-08-26",
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "measuredScore": null,
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "floorReason": null,
+  "family": "glm",
+  "tags": [
+   "Open Weights",
+   "Multimodal",
+   "Long Context"
+  ],
+  "summary": "GLM-5.3-Flash is a native multimodal model from Z.ai. It is suited for efficient coding and long-horizon agent tasks. Its hybrid sparse and linear attention architecture maintains accurate long-context behavior while...",
+  "highlights": [],
+  "sourceUrl": "https://openrouter.ai/z-ai/glm-5.3-flash",
+  "access": "Open",
+  "type": "General",
+  "benchmarkCount": 0
+ },
+ {
   "id": "feed-or:deepseek/deepseek-v4-flash-vision-exp",
   "modelId": "or:deepseek/deepseek-v4-flash-vision-exp",
   "title": "DeepSeek V4 Flash Vision Exp listed",
