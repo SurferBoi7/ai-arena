@@ -450,6 +450,16 @@
   "latestModel": "LongCat-2.0"
  },
  {
+  "key": "nanbeige",
+  "name": "Nanbeige",
+  "monogram": "NA",
+  "color": "#69d345",
+  "blurb": "Models tracked from Nanbeige.",
+  "modelCount": 1,
+  "latestRelease": "2026-07-21",
+  "latestModel": "Nanbeige4.2-3B"
+ },
+ {
   "key": "perceptron",
   "name": "Perceptron",
   "monogram": "PE",
