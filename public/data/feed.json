@@ -26,6 +26,32 @@
   "benchmarkCount": 0
  },
  {
+  "id": "feed-or:qwen/qwen3.8-flash",
+  "modelId": "or:qwen/qwen3.8-flash",
+  "title": "Qwen3.8 Flash listed",
+  "provider": "Alibaba / Qwen",
+  "providerKey": "alibaba",
+  "released": "2026-08-26",
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "measuredScore": null,
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "floorReason": null,
+  "family": "qwen3.8",
+  "tags": [
+   "Proprietary",
+   "Multimodal",
+   "Long Context"
+  ],
+  "summary": "Qwen3.8 Flash is a multimodal reasoning model from Alibaba. It is suited for coding assistance, agentic workflows, visual understanding, document and codebase analysis, desktop interaction, chart analysis, and long-video analysis.",
+  "highlights": [],
+  "sourceUrl": "https://openrouter.ai/qwen/qwen3.8-flash",
+  "access": "Closed",
+  "type": "Reasoning",
+  "benchmarkCount": 0
+ },
+ {
   "id": "feed-or:deepseek/deepseek-v4-flash-vision-exp",
   "modelId": "or:deepseek/deepseek-v4-flash-vision-exp",
   "title": "DeepSeek V4 Flash Vision Exp listed",
