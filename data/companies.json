@@ -5,9 +5,9 @@
   "monogram": "Q",
   "color": "#ff6a00",
   "blurb": "Alibaba's Qwen open-weight model series.",
-  "modelCount": 55,
-  "latestRelease": "2026-08-14",
-  "latestModel": "Qwen3.8 27B"
+  "modelCount": 56,
+  "latestRelease": "2026-08-26",
+  "latestModel": "Qwen3.8 Flash"
  },
  {
   "key": "openai",
