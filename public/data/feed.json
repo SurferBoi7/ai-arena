@@ -1,5 +1,30 @@
 [
  {
+  "id": "feed-or:tencent/hy4-preview",
+  "modelId": "or:tencent/hy4-preview",
+  "title": "Hy4 preview listed",
+  "provider": "Tencent",
+  "providerKey": "tencent",
+  "released": "2026-08-28",
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "measuredScore": null,
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "floorReason": null,
+  "family": "hy4",
+  "tags": [
+   "Proprietary",
+   "Long Context"
+  ],
+  "summary": "Tencent: Hy4 preview is a mixture-of-experts model from Tencent, with 49B active parameters out of 770B total. It is designed for coding agents, complex tool-use workflows, and productivity tasks that...",
+  "highlights": [],
+  "sourceUrl": "https://openrouter.ai/tencent/hy4-preview",
+  "access": "Closed",
+  "type": "General",
+  "benchmarkCount": 0
+ },
+ {
   "id": "feed-or:z-ai/glm-5.3-flash",
   "modelId": "or:z-ai/glm-5.3-flash",
   "title": "GLM 5.3 Flash listed",
