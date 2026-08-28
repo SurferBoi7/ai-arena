@@ -130,6 +130,16 @@
   "latestModel": "Nova 2 Pro Preview"
  },
  {
+  "key": "tencent",
+  "name": "Tencent",
+  "monogram": "T",
+  "color": "#00a4f7",
+  "blurb": "Tencent Hunyuan model family.",
+  "modelCount": 6,
+  "latestRelease": "2026-08-28",
+  "latestModel": "Hy4 preview"
+ },
+ {
   "key": "inclusionai",
   "name": "InclusionAI",
   "monogram": "IN",
@@ -148,16 +158,6 @@
   "modelCount": 5,
   "latestRelease": "2025-10-30",
   "latestModel": "Sonar Pro Search"
- },
- {
-  "key": "tencent",
-  "name": "Tencent",
-  "monogram": "T",
-  "color": "#00a4f7",
-  "blurb": "Tencent Hunyuan model family.",
-  "modelCount": 5,
-  "latestRelease": "2026-08-20",
-  "latestModel": "Hy-MT2-1.8B"
  },
  {
   "key": "aion-labs",
