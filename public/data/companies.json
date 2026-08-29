@@ -498,5 +498,15 @@
   "modelCount": 1,
   "latestRelease": "2026-01-21",
   "latestModel": "Palmyra X5"
+ },
+ {
+  "key": "youssofal",
+  "name": "Youssofal",
+  "monogram": "YO",
+  "color": "#7cd345",
+  "blurb": "Models tracked from Youssofal.",
+  "modelCount": 1,
+  "latestRelease": "2026-08-14",
+  "latestModel": "Qwen3.8-27B-MTPLX-Optimized-Speed"
  }
 ]

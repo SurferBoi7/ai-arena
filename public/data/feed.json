@@ -375,6 +375,30 @@
   "benchmarkCount": 0
  },
  {
+  "id": "feed-hf:Youssofal/Qwen3.8-27B-MTPLX-Optimized-Speed",
+  "modelId": "hf:Youssofal/Qwen3.8-27B-MTPLX-Optimized-Speed",
+  "title": "Qwen3.8-27B-MTPLX-Optimized-Speed listed",
+  "provider": "Youssofal",
+  "providerKey": "youssofal",
+  "released": "2026-08-14",
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "measuredScore": null,
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "floorReason": null,
+  "family": "qwen3",
+  "tags": [
+   "Open Weights"
+  ],
+  "summary": "MTPLX.COM: 2 to 3x speedup. The fastest way to run models on a Mac. 4-bit dynamic quant. Great coding speeds and good quality. Recommended. This is the model MTPLX recommends for coding on a modern Mac with 32 GB or more. It is Qwen3.8-27B with its native multi-token-prediction head kept, so one pass. Same model, same output distribution, a lot more tokens per second. Measured on an M5 Max, fans verified at max, single stream, generation running to the model's own stop, official Qwen 3.8 sampling (temperature 1.0, top-p",
+  "highlights": [],
+  "sourceUrl": "https://huggingface.co/Youssofal/Qwen3.8-27B-MTPLX-Optimized-Speed",
+  "access": "Open",
+  "type": "General",
+  "benchmarkCount": 0
+ },
+ {
   "id": "feed-or:google/gemini-3.7-flash",
   "modelId": "or:google/gemini-3.7-flash",
   "title": "Gemini 3.7 Flash listed",
