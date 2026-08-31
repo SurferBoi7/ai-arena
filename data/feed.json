@@ -1,5 +1,29 @@
 [
  {
+  "id": "feed-or:ibm-granite/granite-4.2-8b",
+  "modelId": "or:ibm-granite/granite-4.2-8b",
+  "title": "Granite 4.2 8B listed",
+  "provider": "Ibm Granite",
+  "providerKey": "ibm-granite",
+  "released": "2026-08-31",
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "measuredScore": null,
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "floorReason": null,
+  "family": "granite",
+  "tags": [
+   "Open Weights"
+  ],
+  "summary": "Granite 4.2 8B is a dense reasoning model from IBM. It is suited for mathematics, code generation, multilingual dialogue, and agentic workflows that need multi-step reasoning. It supports full, low-effort,...",
+  "highlights": [],
+  "sourceUrl": "https://openrouter.ai/ibm-granite/granite-4.2-8b",
+  "access": "Open",
+  "type": "Reasoning",
+  "benchmarkCount": 0
+ },
+ {
   "id": "feed-or:tencent/hy4-preview",
   "modelId": "or:tencent/hy4-preview",
   "title": "Hy4 preview listed",
