@@ -220,6 +220,16 @@
   "latestModel": "Command A+"
  },
  {
+  "key": "ibm-granite",
+  "name": "Ibm Granite",
+  "monogram": "IB",
+  "color": "#d34556",
+  "blurb": "Models tracked from Ibm Granite.",
+  "modelCount": 3,
+  "latestRelease": "2026-08-31",
+  "latestModel": "Granite 4.2 8B"
+ },
+ {
   "key": "arcee-ai",
   "name": "Arcee Ai",
   "monogram": "AR",
@@ -228,16 +238,6 @@
   "modelCount": 2,
   "latestRelease": "2026-04-01",
   "latestModel": "Trinity Large Thinking"
- },
- {
-  "key": "ibm-granite",
-  "name": "Ibm Granite",
-  "monogram": "IB",
-  "color": "#d34556",
-  "blurb": "Models tracked from Ibm Granite.",
-  "modelCount": 2,
-  "latestRelease": "2026-04-30",
-  "latestModel": "Granite 4.1 8B"
  },
  {
   "key": "morph",
