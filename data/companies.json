@@ -240,6 +240,16 @@
   "latestModel": "Trinity Large Thinking"
  },
  {
+  "key": "inception",
+  "name": "Inception",
+  "monogram": "IN",
+  "color": "#45bed3",
+  "blurb": "Models tracked from Inception.",
+  "modelCount": 2,
+  "latestRelease": "2026-08-31",
+  "latestModel": "Mercury 2.5 Preview"
+ },
+ {
   "key": "morph",
   "name": "Morph",
   "monogram": "MO",
@@ -408,16 +418,6 @@
   "modelCount": 1,
   "latestRelease": "2025-07-09",
   "latestModel": "Uncensored"
- },
- {
-  "key": "inception",
-  "name": "Inception",
-  "monogram": "IN",
-  "color": "#45bed3",
-  "blurb": "Models tracked from Inception.",
-  "modelCount": 1,
-  "latestRelease": "2026-03-04",
-  "latestModel": "Mercury 2"
  },
  {
   "key": "incoai",
