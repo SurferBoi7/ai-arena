@@ -1,5 +1,31 @@
 [
  {
+  "id": "feed-or:anthropic/claude-fable-5.1",
+  "modelId": "or:anthropic/claude-fable-5.1",
+  "title": "Claude Fable 5.1 listed",
+  "provider": "Anthropic",
+  "providerKey": "anthropic",
+  "released": "2026-09-01",
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "measuredScore": null,
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "floorReason": null,
+  "family": "claude",
+  "tags": [
+   "Proprietary",
+   "Multimodal",
+   "Long Context"
+  ],
+  "summary": "Claude Fable 5.1 improves on Claude Fable 5 across the board, with the biggest gains in agentic coding, long-running agentic workflows, and knowledge work: long code refactors, front-end and visual...",
+  "highlights": [],
+  "sourceUrl": "https://openrouter.ai/anthropic/claude-fable-5.1",
+  "access": "Closed",
+  "type": "General",
+  "benchmarkCount": 0
+ },
+ {
   "id": "feed-or:ibm-granite/granite-4.2-8b",
   "modelId": "or:ibm-granite/granite-4.2-8b",
   "title": "Granite 4.2 8B listed",
