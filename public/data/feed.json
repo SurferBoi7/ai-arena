@@ -24,6 +24,31 @@
   "benchmarkCount": 0
  },
  {
+  "id": "feed-or:inception/mercury-2.5-preview",
+  "modelId": "or:inception/mercury-2.5-preview",
+  "title": "Mercury 2.5 Preview listed",
+  "provider": "Inception",
+  "providerKey": "inception",
+  "released": "2026-08-31",
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "measuredScore": null,
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "floorReason": null,
+  "family": "mercury",
+  "tags": [
+   "Proprietary",
+   "Long Context"
+  ],
+  "summary": "Mercury 2.5 is the fastest reasoning LLM, and the latest diffusion LLM (dLLM) from Inception. Instead of generating tokens sequentially, Mercury 2.5 produces and refines multiple tokens in parallel, achieving...",
+  "highlights": [],
+  "sourceUrl": "https://openrouter.ai/inception/mercury-2.5-preview",
+  "access": "Closed",
+  "type": "Reasoning",
+  "benchmarkCount": 0
+ },
+ {
   "id": "feed-or:tencent/hy4-preview",
   "modelId": "or:tencent/hy4-preview",
   "title": "Hy4 preview listed",
