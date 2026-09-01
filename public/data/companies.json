@@ -40,6 +40,16 @@
   "latestModel": "Mistral Leanstral-1.5-119B-A6B"
  },
  {
+  "key": "anthropic",
+  "name": "Anthropic",
+  "monogram": "A",
+  "color": "#d97757",
+  "blurb": "Creator of the Claude model family and originator of Constitutional AI.",
+  "modelCount": 19,
+  "latestRelease": "2026-09-01",
+  "latestModel": "Claude Fable 5.1"
+ },
+ {
   "key": "deepseek",
   "name": "DeepSeek",
   "monogram": "D",
@@ -48,16 +58,6 @@
   "modelCount": 19,
   "latestRelease": "2026-08-21",
   "latestModel": "DeepSeek V4 Flash Vision Exp"
- },
- {
-  "key": "anthropic",
-  "name": "Anthropic",
-  "monogram": "A",
-  "color": "#d97757",
-  "blurb": "Creator of the Claude model family and originator of Constitutional AI.",
-  "modelCount": 18,
-  "latestRelease": "2026-07-24",
-  "latestModel": "Claude Opus 5 (Fast)"
  },
  {
   "key": "zhipu",
