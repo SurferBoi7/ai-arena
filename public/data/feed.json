@@ -2423,6 +2423,30 @@
   "benchmarkCount": 0
  },
  {
+  "id": "feed-hf:OpenMOSS-Team/MOSS-Transcribe-Diarize",
+  "modelId": "hf:OpenMOSS-Team/MOSS-Transcribe-Diarize",
+  "title": "MOSS-Transcribe-Diarize listed",
+  "provider": "Openmoss Team",
+  "providerKey": "openmoss-team",
+  "released": "2026-05-19",
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "measuredScore": null,
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "floorReason": null,
+  "family": "moss",
+  "tags": [
+   "Open Weights"
+  ],
+  "summary": "MOSS-Transcribe-Diarize 0.9B is an end-to-end audio understanding model for long-form multi-speaker transcription, diarization, timestamps, and acoustic event awareness. It supports transcription and diarization across 50+ languages, single-pass inference on audio recordings up to 90 minutes long, and custom hotword prompting for domain-specific terms. Given an audio or video file, the model generates a compact speaker-aware transcript in one pass, including timestamps and anonymous speaker labels such as [S01], [S02], and beyond.",
+  "highlights": [],
+  "sourceUrl": "https://huggingface.co/OpenMOSS-Team/MOSS-Transcribe-Diarize",
+  "access": "Open",
+  "type": "General",
+  "benchmarkCount": 0
+ },
+ {
   "id": "feed-or:perceptron/perceptron-mk1",
   "modelId": "or:perceptron/perceptron-mk1",
   "title": "Perceptron Mk1 listed",
