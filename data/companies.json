@@ -60,6 +60,16 @@
   "latestModel": "DeepSeek V4 Flash Vision Exp"
  },
  {
+  "key": "meta",
+  "name": "Meta",
+  "monogram": "M",
+  "color": "#0668e1",
+  "blurb": "Meta AI — open-weight Llama foundation models.",
+  "modelCount": 19,
+  "latestRelease": "2026-09-02",
+  "latestModel": "Muse Spark 1.3"
+ },
+ {
   "key": "zhipu",
   "name": "Zhipu AI",
   "monogram": "Z",
@@ -70,22 +80,12 @@
   "latestModel": "GLM Flash Latest"
  },
  {
-  "key": "meta",
-  "name": "Meta",
-  "monogram": "M",
-  "color": "#0668e1",
-  "blurb": "Meta AI — open-weight Llama foundation models.",
-  "modelCount": 17,
-  "latestRelease": "2026-08-21",
-  "latestModel": "Muse Spark 1.2 Contributor"
- },
- {
   "key": "bytedance",
   "name": "ByteDance",
   "monogram": "B",
   "color": "#ff2d55",
   "blurb": "ByteDance — Doubao and Seed models.",
-  "modelCount": 9,
+  "modelCount": 10,
   "latestRelease": "2026-08-12",
   "latestModel": "Seed 2.1 Turbo"
  },
