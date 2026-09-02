@@ -460,6 +460,16 @@
   "latestModel": "Nanbeige4.2-3B"
  },
  {
+  "key": "openmoss-team",
+  "name": "Openmoss Team",
+  "monogram": "OP",
+  "color": "#d345cf",
+  "blurb": "Models tracked from Openmoss Team.",
+  "modelCount": 1,
+  "latestRelease": "2026-05-19",
+  "latestModel": "MOSS-Transcribe-Diarize"
+ },
+ {
   "key": "perceptron",
   "name": "Perceptron",
   "monogram": "PE",
