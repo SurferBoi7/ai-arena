@@ -1,5 +1,31 @@
 [
  {
+  "id": "feed-or:google/gemini-3.8-flash",
+  "modelId": "or:google/gemini-3.8-flash",
+  "title": "Gemini 3.8 Flash listed",
+  "provider": "Google",
+  "providerKey": "google",
+  "released": "2026-09-02",
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "measuredScore": null,
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "floorReason": null,
+  "family": "gemini",
+  "tags": [
+   "Proprietary",
+   "Multimodal",
+   "Long Context"
+  ],
+  "summary": "Gemini 3.8 Flash is Google's most intelligent Flash model, engineered for long-horizon software engineering, autonomous agents, and complex enterprise workflows.",
+  "highlights": [],
+  "sourceUrl": "https://openrouter.ai/google/gemini-3.8-flash",
+  "access": "Closed",
+  "type": "General",
+  "benchmarkCount": 0
+ },
+ {
   "id": "feed-or:anthropic/claude-fable-5.1",
   "modelId": "or:anthropic/claude-fable-5.1",
   "title": "Claude Fable 5.1 listed",

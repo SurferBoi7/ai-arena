@@ -25,9 +25,9 @@
   "monogram": "G",
   "color": "#4285f4",
   "blurb": "Google DeepMind — the Gemini model line.",
-  "modelCount": 27,
-  "latestRelease": "2026-08-13",
-  "latestModel": "Gemini 3.7 Flash"
+  "modelCount": 28,
+  "latestRelease": "2026-09-02",
+  "latestModel": "Gemini 3.8 Flash"
  },
  {
   "key": "mistral",
