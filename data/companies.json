@@ -65,9 +65,9 @@
   "monogram": "Z",
   "color": "#3b5bdb",
   "blurb": "Chinese lab behind the GLM model family.",
-  "modelCount": 18,
-  "latestRelease": "2026-08-26",
-  "latestModel": "GLM 5.3 Flash"
+  "modelCount": 19,
+  "latestRelease": "2026-08-27",
+  "latestModel": "GLM Flash Latest"
  },
  {
   "key": "meta",
