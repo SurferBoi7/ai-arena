@@ -130,6 +130,16 @@
   "latestModel": "Nova 2 Pro Preview"
  },
  {
+  "key": "inclusionai",
+  "name": "InclusionAI",
+  "monogram": "IN",
+  "color": "#45d362",
+  "blurb": "Models tracked from InclusionAI.",
+  "modelCount": 6,
+  "latestRelease": "2026-08-27",
+  "latestModel": "Ling 3.0 Flash Fin"
+ },
+ {
   "key": "tencent",
   "name": "Tencent",
   "monogram": "T",
@@ -138,16 +148,6 @@
   "modelCount": 6,
   "latestRelease": "2026-08-28",
   "latestModel": "Hy4 preview"
- },
- {
-  "key": "inclusionai",
-  "name": "InclusionAI",
-  "monogram": "IN",
-  "color": "#45d362",
-  "blurb": "Models tracked from InclusionAI.",
-  "modelCount": 5,
-  "latestRelease": "2026-08-10",
-  "latestModel": "Ling-3.0-tiny"
  },
  {
   "key": "perplexity",

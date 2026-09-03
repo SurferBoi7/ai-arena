@@ -204,6 +204,31 @@
   "benchmarkCount": 0
  },
  {
+  "id": "feed-or:inclusionai/ling-3.0-flash-fin",
+  "modelId": "or:inclusionai/ling-3.0-flash-fin",
+  "title": "Ling 3.0 Flash Fin listed",
+  "provider": "InclusionAI",
+  "providerKey": "inclusionai",
+  "released": "2026-08-27",
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "measuredScore": null,
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "floorReason": null,
+  "family": "ling",
+  "tags": [
+   "Proprietary",
+   "Long Context"
+  ],
+  "summary": "Ling 3.0 Flash Fin is a finance-focused mixture-of-experts model from InclusionAI, built on Ling 3.0 Flash with 5.1B active parameters out of 124B total. It is designed for real-world investment...",
+  "highlights": [],
+  "sourceUrl": "https://openrouter.ai/inclusionai/ling-3.0-flash-fin",
+  "access": "Closed",
+  "type": "General",
+  "benchmarkCount": 0
+ },
+ {
   "id": "feed-or:z-ai/glm-5.3-flash",
   "modelId": "or:z-ai/glm-5.3-flash",
   "title": "GLM 5.3 Flash listed",
