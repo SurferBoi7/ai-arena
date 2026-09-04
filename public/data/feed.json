@@ -2260,6 +2260,31 @@
   "benchmarkCount": 0
  },
  {
+  "id": "feed-or:nvidia/nemotron-3.5-content-safety",
+  "modelId": "or:nvidia/nemotron-3.5-content-safety",
+  "title": "Nemotron 3.5 Content Safety listed",
+  "provider": "NVIDIA",
+  "providerKey": "nvidia",
+  "released": "2026-06-04",
+  "ultimateScore": 0,
+  "scoreStatus": "imputed",
+  "measuredScore": null,
+  "imputationReason": "No verified benchmark data — scored at floor (0). Missing-data models are no longer granted a grace-period baseline.",
+  "ceilingReason": null,
+  "floorReason": null,
+  "family": "nemotron",
+  "tags": [
+   "Open Weights",
+   "Multimodal"
+  ],
+  "summary": "NVIDIA Nemotron 3.5 Content Safety is a compact 4B-parameter multimodal guardrail model from NVIDIA, fine-tuned from Google Gemma-3-4B. It moderates both inputs to and responses from LLMs and VLMs, accepting...",
+  "highlights": [],
+  "sourceUrl": "https://openrouter.ai/nvidia/nemotron-3.5-content-safety",
+  "access": "Open",
+  "type": "General",
+  "benchmarkCount": 0
+ },
+ {
   "id": "feed-or:qwen/qwen3.7-plus",
   "modelId": "or:qwen/qwen3.7-plus",
   "title": "Qwen3.7 Plus listed",
