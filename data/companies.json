@@ -150,6 +150,16 @@
   "latestModel": "Hy4 preview"
  },
  {
+  "key": "nvidia",
+  "name": "NVIDIA",
+  "monogram": "NV",
+  "color": "#d39845",
+  "blurb": "Models tracked from NVIDIA.",
+  "modelCount": 5,
+  "latestRelease": "2026-08-11",
+  "latestModel": "Nemotron 3.5 Lightning"
+ },
+ {
   "key": "perplexity",
   "name": "Perplexity",
   "monogram": "PE",
@@ -188,16 +198,6 @@
   "modelCount": 4,
   "latestRelease": "2026-06-02",
   "latestModel": "MAI-Thinking-1"
- },
- {
-  "key": "nvidia",
-  "name": "NVIDIA",
-  "monogram": "NV",
-  "color": "#d39845",
-  "blurb": "Models tracked from NVIDIA.",
-  "modelCount": 4,
-  "latestRelease": "2026-08-11",
-  "latestModel": "Nemotron 3.5 Lightning"
  },
  {
   "key": "thedrummer",
