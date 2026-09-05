@@ -15,9 +15,9 @@
   "monogram": "AI",
   "color": "#10a37f",
   "blurb": "Maker of the GPT and o-series frontier models.",
-  "modelCount": 47,
-  "latestRelease": "2026-07-09",
-  "latestModel": "GPT-5.6 Luna"
+  "modelCount": 48,
+  "latestRelease": "2026-09-04",
+  "latestModel": "GPT-6 Astra"
  },
  {
   "key": "google",
